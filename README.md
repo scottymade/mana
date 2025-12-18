@@ -20,9 +20,11 @@ flowchart TB
     CLAUDE --> RESPONSE[Claude's Response]
 ```
 
-Your prompts and Claude's responses use full tokens as normal. MANA only optimizes the tool outputs (file contents, command results, search outputs) that would otherwise bloat your context.
+**Smart Routing** — Every tool action routes to a lightweight model benchmarked as the most accurate for that specific job.
 
-**Example:** You ask Claude to read a 4,200 token file. MANA extracts just the relevant code (890 tokens) and returns it to Claude. Result: 3,310 tokens saved (79% reduction).
+**Lean Processing** — Optimized models handle the heavy lifting—reading files, parsing bash outputs, extracting precise answers.
+
+**Compounding Savings** — Leaner responses mean leaner context. Savings stack with every turn. Longer sessions, fewer tokens burned.
 
 ---
 
