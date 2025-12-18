@@ -8,6 +8,17 @@ MANA optimizes the token-heavy tool outputs that eat through your Claude limits.
 
 ## How It Works
 
+**What If You Had a Mana Regen Buff Running 24/7?** That's Mana.
+
+We route Claude tool calls through our custom MCP server. When Claude Code reads a 3,000-line file, Mana intercepts the bloated response, routes it through more optimized models to extract only what's relevant to your quest, then sends the filtered result back.
+
+- Claude's full intelligence on architecture & code
+- Trash mobs handled by leaner models
+- Your existing workflow, unchanged
+- Same firepower, at a fraction of the mana cost
+
+Claude still handles your architecture decisions, writing clean & concise code, complex debugging, and code reviews—the actual boss fights. It just stops wasting magic on tool outputs that didn't need Claude-level intelligence in the first place.
+
 ```mermaid
 flowchart TB
     USER[Your Prompt] --> CLAUDE[Claude]
