@@ -1,0 +1,29 @@
+#!/bin/bash
+# MANA MCP Server - Cross-platform wrapper script
+# Detects OS and architecture to run the correct binary
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+OS=$(uname -s | tr '[:upper:]' '[:lower:]')
+ARCH=$(uname -m)
+
+# Normalize architecture
+case "$ARCH" in
+  x86_64|amd64) ARCH="x64" ;;
+  arm64|aarch64) ARCH="arm64" ;;
+esac
+
+# Select binary based on OS
+case "$OS" in
+  darwin) BINARY="$SCRIPT_DIR/mana-mcp-darwin-$ARCH" ;;
+  linux) BINARY="$SCRIPT_DIR/mana-mcp-linux-x64" ;;
+  *) echo "Unsupported OS: $OS" >&2; exit 1 ;;
+esac
+
+# Verify binary exists
+if [ ! -f "$BINARY" ]; then
+  echo "Error: Binary not found: $BINARY" >&2
+  echo "Please ensure the correct binary is installed." >&2
+  exit 1
+fi
+
+exec "$BINARY" "$@"

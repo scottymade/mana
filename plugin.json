@@ -1,0 +1,11 @@
+{
+  "name": "mana-mcp",
+  "description": "MANA - LLM Token Usage Optimizer",
+  "version": "1.0.0",
+  "mcpServers": {
+    "mana": {
+      "command": "${CLAUDE_PLUGIN_ROOT}/bin/mana-mcp",
+      "args": []
+    }
+  }
+}
