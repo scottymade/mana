@@ -12,8 +12,8 @@
   <a href="https://devmana.ai">
     <img src="https://img.shields.io/badge/Claude%20Code-MCP%20Server-purple.svg" alt="Claude Code MCP Server">
   </a>
-  <a href="#license">
-    <img src="https://img.shields.io/badge/license-Proprietary-red.svg" alt="License">
+  <a href="https://github.com/scottymade/mana/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/scottymade/mana" alt="License">
   </a>
 </p>
 
@@ -294,4 +294,4 @@ export PATH="$HOME/.local/bin:$PATH"
 
 ## License
 
-Proprietary - Copyright 2025 ScottyMade LLC
+Apache 2.0 - See [LICENSE](LICENSE) for details.
