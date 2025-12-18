@@ -6,6 +6,26 @@ MANA optimizes the token-heavy tool outputs that eat through your Claude limits.
 
 ---
 
+## How It Works
+
+```mermaid
+flowchart TB
+    USER[Your Prompt] --> CLAUDE[Claude]
+    CLAUDE --> |read_optimized| MANA[MANA MCP Server]
+    CLAUDE --> |bash_optimized| MANA
+    CLAUDE --> |search_optimized| MANA
+    MANA --> |Raw Content| API[MANA Optimization API]
+    API --> |Compressed| MANA
+    MANA --> |50-80% fewer tokens| CLAUDE
+    CLAUDE --> RESPONSE[Claude's Response]
+```
+
+Your prompts and Claude's responses use full tokens as normal. MANA only optimizes the tool outputs (file contents, command results, search outputs) that would otherwise bloat your context.
+
+**Example:** You ask Claude to read a 4,200 token file. MANA extracts just the relevant code (890 tokens) and returns it to Claude. Result: 3,310 tokens saved (79% reduction).
+
+---
+
 ## Quick Start
 
 ### Step 1: Get Your API Key
@@ -191,26 +211,6 @@ export PATH="$HOME/.local/bin:$PATH"
 
 - Files under 1,200 characters skip optimization (overhead exceeds benefit)
 - Check your API usage at [devmana.ai/dashboard](https://devmana.ai/dashboard)
-
----
-
-## How It Works
-
-```mermaid
-flowchart TB
-    USER[Your Prompt] --> CLAUDE[Claude]
-    CLAUDE --> |read_optimized| MANA[MANA MCP Server]
-    CLAUDE --> |bash_optimized| MANA
-    CLAUDE --> |search_optimized| MANA
-    MANA --> |Raw Content| API[MANA Optimization API]
-    API --> |Compressed| MANA
-    MANA --> |50-80% fewer tokens| CLAUDE
-    CLAUDE --> RESPONSE[Claude's Response]
-```
-
-Your prompts and Claude's responses use full tokens as normal. MANA only optimizes the tool outputs (file contents, command results, search outputs) that would otherwise bloat your context.
-
-**Example:** You ask Claude to read a 4,200 token file. MANA extracts just the relevant code (890 tokens) and returns it to Claude. Result: 3,310 tokens saved (79% reduction).
 
 ---
 
