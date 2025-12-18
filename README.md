@@ -1,4 +1,23 @@
-# MANA - Double Your Claude Usage
+<p align="center">
+  <img src="https://devmana.ai/mana-header.png" alt="Mana - Double Your Claude Code Usage for 1/3 the Price" width="800">
+</p>
+
+<p align="center">
+  <a href="https://github.com/scottymade/mana/releases">
+    <img src="https://img.shields.io/github/v/release/scottymade/mana" alt="Version">
+  </a>
+  <a href="https://github.com/scottymade/mana/releases">
+    <img src="https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey.svg" alt="Platforms">
+  </a>
+  <a href="https://devmana.ai">
+    <img src="https://img.shields.io/badge/Claude%20Code-MCP%20Server-purple.svg" alt="Claude Code MCP Server">
+  </a>
+  <a href="#license">
+    <img src="https://img.shields.io/badge/license-Proprietary-red.svg" alt="License">
+  </a>
+</p>
+
+---
 
 MANA optimizes the token-heavy tool outputs that eat through your Claude limits. File reads, command outputs, search results - they all get intelligently routed and compressed before reaching Claude, saving 50-80% of tokens on every operation. Keeping your context lean and keeping you coding longer without hitting usage caps!
 
