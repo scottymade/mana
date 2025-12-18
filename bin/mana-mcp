@@ -1,8 +1,13 @@
 #!/bin/bash
 # MANA MCP Server - Cross-platform wrapper script
-# Detects OS and architecture to run the correct binary
+# Downloads the correct binary from GitHub releases on first run
+
+set -e
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+REPO="scottymade/mana"
+
+# Detect OS and architecture
 OS=$(uname -s | tr '[:upper:]' '[:lower:]')
 ARCH=$(uname -m)
 
@@ -12,18 +17,34 @@ case "$ARCH" in
   arm64|aarch64) ARCH="arm64" ;;
 esac
 
-# Select binary based on OS
+# Select binary name based on OS
 case "$OS" in
-  darwin) BINARY="$SCRIPT_DIR/mana-mcp-darwin-$ARCH" ;;
-  linux) BINARY="$SCRIPT_DIR/mana-mcp-linux-x64" ;;
+  darwin) BINARY_NAME="mana-mcp-darwin-$ARCH" ;;
+  linux) BINARY_NAME="mana-mcp-linux-x64" ;;
   *) echo "Unsupported OS: $OS" >&2; exit 1 ;;
 esac
 
-# Verify binary exists
-if [ ! -f "$BINARY" ]; then
-  echo "Error: Binary not found: $BINARY" >&2
-  echo "Please ensure the correct binary is installed." >&2
-  exit 1
+BINARY_PATH="$SCRIPT_DIR/$BINARY_NAME"
+
+# Download binary if not present
+if [ ! -f "$BINARY_PATH" ]; then
+  echo "MANA: Downloading $BINARY_NAME..." >&2
+
+  # Get latest release download URL
+  DOWNLOAD_URL="https://github.com/$REPO/releases/latest/download/$BINARY_NAME"
+
+  # Download
+  if command -v curl &> /dev/null; then
+    curl -fsSL "$DOWNLOAD_URL" -o "$BINARY_PATH"
+  elif command -v wget &> /dev/null; then
+    wget -q "$DOWNLOAD_URL" -O "$BINARY_PATH"
+  else
+    echo "Error: curl or wget required to download binary" >&2
+    exit 1
+  fi
+
+  chmod +x "$BINARY_PATH"
+  echo "MANA: Downloaded successfully" >&2
 fi
 
-exec "$BINARY" "$@"
+exec "$BINARY_PATH" "$@"
