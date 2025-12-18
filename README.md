@@ -196,26 +196,21 @@ export PATH="$HOME/.local/bin:$PATH"
 
 ## How It Works
 
-```
-You: "Find the auth middleware and explain how it works"
-                              |
-                              v
-┌─────────────────────────────────────────────────────────────┐
-│                     MANA MCP Server                          │
-│                                                              │
-│  1. Claude calls read_optimized("auth.ts", "EXTRACT")       │
-│  2. MANA reads the file (4,200 tokens)                      │
-│  3. MANA extracts just the relevant code (890 tokens)       │
-│  4. Returns optimized content to Claude                      │
-│                                                              │
-│  Result: 3,310 tokens saved (79% reduction)                 │
-└─────────────────────────────────────────────────────────────┘
-                              |
-                              v
-Claude: "The auth middleware validates JWT tokens and..."
+```mermaid
+flowchart TB
+    USER[Your Prompt] --> CLAUDE[Claude]
+    CLAUDE --> |read_optimized| MANA[MANA MCP Server]
+    CLAUDE --> |bash_optimized| MANA
+    CLAUDE --> |search_optimized| MANA
+    MANA --> |Raw Content| API[MANA Optimization API]
+    API --> |Compressed| MANA
+    MANA --> |50-80% fewer tokens| CLAUDE
+    CLAUDE --> RESPONSE[Claude's Response]
 ```
 
-Your questions and Claude's answers use full tokens as normal. MANA only optimizes the tool outputs (file contents, command results, search outputs) that would otherwise bloat your context.
+Your prompts and Claude's responses use full tokens as normal. MANA only optimizes the tool outputs (file contents, command results, search outputs) that would otherwise bloat your context.
+
+**Example:** You ask Claude to read a 4,200 token file. MANA extracts just the relevant code (890 tokens) and returns it to Claude. Result: 3,310 tokens saved (79% reduction).
 
 ---
 
