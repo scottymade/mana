@@ -6,6 +6,32 @@ MANA optimizes the token-heavy tool outputs that eat through your Claude limits.
 
 ---
 
+## Your Mana Bar Has a Hole In It
+
+*Debuff effect: Token bleed on every tool call. Here's how it stacks:*
+
+### File Operations Are Mana Vampires
+
+Claude Code reads an entire component file. 2,847 lines. Only 40 were relevant to your query. That's 2,800+ wasted tokens per file op. One trash mob just ate your spell slots.
+
+### Bash Commands Siphon Mana on Every Cast
+
+You run `npm run test`. Claude gets back 5,000 tokens - suite names, timing breakdowns, coverage reports. You just needed to know: is the build alive? Mana bar blinked red for a pulse check.
+
+### Directory Searches Burn Through Reserves
+
+Claude casts Locate Object to find a file. Miss. Recasts with new keywords. Miss. Third cast, broader search. Nothing batched. That's 3x the tokens for one file path.
+
+### It's a Wipe. Pull the Combat Log — Here's What Killed You.
+
+| 70-90% | 6-12h | 2-3x |
+|--------|-------|------|
+| of tokens go to tool bloat - not your actual work | actual grinding (from 25h) | faster bleed in large codebases |
+
+**You're not bad at token management. The trash mobs wiped your mana before you even reached the boss.**
+
+---
+
 ## How It Works
 
 **What If You Had a Mana Regen Buff Running 24/7?** That's Mana.
@@ -36,6 +62,16 @@ flowchart TB
 **Lean Processing** — Optimized models handle the heavy lifting—reading files, parsing bash outputs, extracting precise answers.
 
 **Compounding Savings** — Leaner responses mean leaner context. Savings stack with every turn. Longer sessions, fewer tokens burned.
+
+### Mana Pool: Doubled
+
+| Plan | Before | With Mana |
+|------|--------|-----------|
+| Claude Pro | 25 hours | **50 hours** |
+| Claude Max $100 | 125 hours | **250 hours** |
+| Claude Max $200 | 500 hours | **1000 hours** |
+
+**Same Claude intelligence. Double the hours. A fraction of the price!**
 
 ---
 
