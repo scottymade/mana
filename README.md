@@ -1,8 +1,8 @@
 # MANA - Double Your Claude Usage
 
-MANA optimizes the token-heavy tool outputs that eat through your Claude limits. File reads, command outputs, search results - they all get intelligently compressed before reaching Claude, saving 50-80% of tokens on every operation. Your prompts and Claude's responses stay untouched.
+MANA optimizes the token-heavy tool outputs that eat through your Claude limits. File reads, command outputs, search results - they all get intelligently routed and compressed before reaching Claude, saving 50-80% of tokens on every operation. Keeping your context lean and keeping you coding longer without hitting usage caps!
 
-**Result: 2x the coding sessions from the same subscription.**
+**Result: 2x the coding sessions with no change to your workflow.**
 
 ---
 
@@ -24,7 +24,7 @@ Claude casts Locate Object to find a file. Miss. Recasts with new keywords. Miss
 
 ### It's a Wipe. Pull the Combat Log — Here's What Killed You.
 
-| 70-90% | 6-12h | 2-3x |
+| 50-80% | 6-12h | 2-3x |
 |--------|-------|------|
 | of tokens go to tool bloat - not your actual work | actual grinding (from 25h) | faster bleed in large codebases |
 
@@ -34,7 +34,9 @@ Claude casts Locate Object to find a file. Miss. Recasts with new keywords. Miss
 
 ## How It Works
 
-**What If You Had a Mana Regen Buff Running 24/7?** That's Mana.
+**What If You Had a Mana Regen Buff Running 24/7?** 
+
+**_That's Mana._**
 
 We route Claude tool calls through our custom MCP server. When Claude Code reads a 3,000-line file, Mana intercepts the bloated response, routes it through more optimized models to extract only what's relevant to your quest, then sends the filtered result back.
 
@@ -126,7 +128,7 @@ Add to `~/.claude/settings.json`:
   }
 }
 ```
-
+<!-- 
 #### Cursor
 
 Add to `~/.cursor/mcp.json`:
@@ -156,6 +158,7 @@ Add to `~/.codeium/windsurf/mcp_config.json`:
   }
 }
 ```
+--> 
 
 ### Step 4: Install the Claude Instructions (Required)
 
@@ -177,7 +180,7 @@ Or for a specific project only:
 mkdir -p .claude
 curl -fsSL https://raw.githubusercontent.com/scottymade/mana/main/instructions/CLAUDE_INSTRUCTIONS.md >> .claude/CLAUDE.md
 ```
-
+<!-- 
 #### For Cursor
 
 ```bash
@@ -198,8 +201,9 @@ curl -fsSL https://raw.githubusercontent.com/scottymade/mana/main/instructions/C
 # Add to your project
 curl -fsSL https://raw.githubusercontent.com/scottymade/mana/main/instructions/CLAUDE_INSTRUCTIONS.md >> .windsurfrules
 ```
+-->
 
-#### What the Instructions Do
+#### What the Instructions File Does
 
 The instructions file teaches Claude to:
 
@@ -256,21 +260,19 @@ export PATH="$HOME/.local/bin:$PATH"
 2. Check for typos in your config file
 3. Ensure the key hasn't been revoked
 
-### No optimization happening
-
-- Files under 1,200 characters skip optimization (overhead exceeds benefit)
-- Check your API usage at [devmana.ai/dashboard](https://devmana.ai/dashboard)
+### API Usage
+- Check your API usage on your [Mana Dashboard](https://app.devmana.ai/)
 
 ---
 
 ## Support
 
-- **Documentation**: [devmana.ai/docs](https://devmana.ai/docs)
+- **Documentation**: [Installation Docs](https://github.com/scottymade/mana/)
 - **Issues**: [GitHub Issues](https://github.com/scottymade/mana/issues)
-- **Email**: hi@scottymadellc.com
+- **Bugs, Feedback and Feature Requests** can be sent via the chat feature in your [Mana Dashboard](https://app.devmana.ai/).
 
 ---
 
 ## License
 
-Proprietary - Copyright 2024 ScottyMade LLC
+Proprietary - Copyright 2025 ScottyMade LLC
