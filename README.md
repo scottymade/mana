@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://devmana.ai/mana-header.png" alt="Mana - Double Your Claude Code Usage for 1/3 the Price" width="800">
+  <img src="docs/mana-promo.png" alt="Mana - Double Your Claude Code Usage for 1/3 the Price" width="800">
 </p>
 
 <p align="center">
