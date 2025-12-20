@@ -113,15 +113,20 @@ Choose **Project Install** (recommended) or **Global Install**:
 
 #### Option A: Project Install (Recommended)
 
-Installs MANA for a single project. Run this in your project directory:
+Installs MANA for a single project. Run this **in your project directory**:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/scottymade/mana/main/project-setup.sh | bash -s -- YOUR_API_KEY
 ```
 
-This creates a `.mcp.json` file in your project with your API key configured.
+This script automatically:
+- Downloads the MANA MCP server binary
+- Creates `.mcp.json` with your API key
+- Installs Claude instructions (`.claude/CLAUDE.md`)
 
 > **Note:** Add `.mcp.json` to your `.gitignore` to keep your API key private.
+
+**That's it!** Restart Claude Code and run `/mcp` to verify MANA is connected.
 
 ---
 
@@ -137,11 +142,13 @@ curl -fsSL https://raw.githubusercontent.com/scottymade/mana/main/global-setup.s
 
 ---
 
-### Step 3: Install the Claude Instructions (Required)
+### Manual Installation (Optional)
 
-MANA works by providing optimized alternatives to Claude's built-in tools. For Claude to use these optimized tools, you need to install the **MANA instructions file** which tells Claude to prefer MANA's tools over its native ones.
+If you prefer to install components separately, or need to add Claude instructions to an existing global config:
 
-#### For Claude Code
+#### Install Claude Instructions Manually
+
+MANA requires instructions that tell Claude to use MANA's optimized tools. If you used the project setup script above, this is already done. Otherwise:
 
 **Global (applies to all projects):**
 
@@ -149,7 +156,7 @@ MANA works by providing optimized alternatives to Claude's built-in tools. For C
 curl -fsSL https://raw.githubusercontent.com/scottymade/mana/main/instructions/CLAUDE_INSTRUCTIONS.md >> ~/.claude/CLAUDE.md
 ```
 
-**Or per-project only:**
+**Per-project:**
 
 ```bash
 mkdir -p .claude
@@ -225,7 +232,7 @@ export PATH="$HOME/.local/bin:$PATH"
 
 ### Claude isn't using MANA tools
 
-1. Verify the instructions file is installed (see Step 3)
+1. Verify the instructions file is installed (check `.claude/CLAUDE.md` exists)
 2. Restart your IDE after making changes
 3. Check that the instructions appear in your IDE's context
 
