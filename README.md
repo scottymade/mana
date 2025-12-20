@@ -103,99 +103,55 @@ flowchart TB
 1. Sign up at [devmana.ai](https://devmana.ai)
 2. Go to **Settings > API Keys**
 3. Click **Create API Key**
-4. Copy your key (you'll need it in Step 3)
+4. Copy your key (you'll need it in Step 2)
 
 ### Step 2: Install MANA
 
-**Option A: Claude Code Plugin (Recommended)**
+Choose **Project Install** (recommended) or **Global Install**:
+
+---
+
+#### Option A: Project Install (Recommended)
+
+Installs MANA for a single project. Run this in your project directory:
 
 ```bash
-/plugin marketplace add scottymade/mana
-/plugin install mana-mcp
+curl -fsSL https://raw.githubusercontent.com/scottymade/mana/main/project-setup.sh | bash -s -- YOUR_API_KEY
 ```
 
-**Option B: Universal Installer**
+This creates a `.mcp.json` file in your project with your API key configured.
 
+> **Note:** Add `.mcp.json` to your `.gitignore` to keep your API key private.
+
+---
+
+#### Option B: Global Install
+
+Installs MANA for all projects. Coming soon!
+
+<!--
 ```bash
-curl -fsSL https://raw.githubusercontent.com/scottymade/mana/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/scottymade/mana/main/global-setup.sh | bash -s -- YOUR_API_KEY
 ```
+-->
 
-**Option C: Manual Download**
+---
 
-Download your platform's binary from the [Releases page](https://github.com/scottymade/mana/releases):
-
-| Your System | Download |
-|-------------|----------|
-| Mac (M1/M2/M3) | `mana-mcp-darwin-arm64` |
-| Mac (Intel) | `mana-mcp-darwin-x64` |
-| Linux | `mana-mcp-linux-x64` |
-| Windows | `mana-mcp-windows-x64.exe` |
-
-### Step 3: Configure Your IDE
-
-#### Claude Code / Claude Desktop
-
-Add to `~/.claude/settings.json`:
-
-```json
-{
-  "mcpServers": {
-    "mana": {
-      "command": "/usr/local/bin/mana-mcp",
-      "args": ["--api-key=YOUR_API_KEY"]
-    }
-  }
-}
-```
-<!-- 
-#### Cursor
-
-Add to `~/.cursor/mcp.json`:
-
-```json
-{
-  "mcpServers": {
-    "mana": {
-      "command": "/usr/local/bin/mana-mcp",
-      "args": ["--api-key=YOUR_API_KEY"]
-    }
-  }
-}
-```
-
-#### Windsurf
-
-Add to `~/.codeium/windsurf/mcp_config.json`:
-
-```json
-{
-  "mcpServers": {
-    "mana": {
-      "command": "/usr/local/bin/mana-mcp",
-      "args": ["--api-key=YOUR_API_KEY"]
-    }
-  }
-}
-```
---> 
-
-### Step 4: Install the Claude Instructions (Required)
+### Step 3: Install the Claude Instructions (Required)
 
 MANA works by providing optimized alternatives to Claude's built-in tools. For Claude to use these optimized tools, you need to install the **MANA instructions file** which tells Claude to prefer MANA's tools over its native ones.
 
 #### For Claude Code
 
-Copy the instructions to your global Claude config:
+**Global (applies to all projects):**
 
 ```bash
-# Download and install globally (applies to all projects)
 curl -fsSL https://raw.githubusercontent.com/scottymade/mana/main/instructions/CLAUDE_INSTRUCTIONS.md >> ~/.claude/CLAUDE.md
 ```
 
-Or for a specific project only:
+**Or per-project only:**
 
 ```bash
-# Install to current project
 mkdir -p .claude
 curl -fsSL https://raw.githubusercontent.com/scottymade/mana/main/instructions/CLAUDE_INSTRUCTIONS.md >> .claude/CLAUDE.md
 ```
@@ -269,7 +225,7 @@ export PATH="$HOME/.local/bin:$PATH"
 
 ### Claude isn't using MANA tools
 
-1. Verify the instructions file is installed (see Step 4)
+1. Verify the instructions file is installed (see Step 3)
 2. Restart your IDE after making changes
 3. Check that the instructions appear in your IDE's context
 
