@@ -1,4 +1,4 @@
-# MANA Token Optimization - MANDATORY TOOL REPLACEMENTS
+# MANA LLM Usage Optimization (https://devmana.ai) - MANDATORY TOOL REPLACEMENTS
 
 **CRITICAL: NEVER use native Read, Bash, Search, Grep, or Glob tools. ALWAYS use MANA optimized versions.**
 
@@ -6,7 +6,7 @@
 
 🛑 **STOP AND CHECK** before using any native tool:
 - "Am I about to use Read?" → Use `read_optimized` instead
-- "Am I about to use Bash?" → Use `bash_optimized` instead
+- "Am I about to use Bash?" → Use `bash_optimized` instead  
 - "Am I about to use Search/Grep/Glob?" → Use `search_optimized` instead
 
 ## Tool Replacements
