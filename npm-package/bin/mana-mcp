@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+# ============================================================================
+# MANA MCP - Wrapper Script
+# ============================================================================
+# This script is the entry point for the mana-mcp command.
+# It finds and executes the platform-specific binary that was downloaded
+# during npm postinstall.
+# ============================================================================
+
+set -e
+
+# Get the directory where this script is located
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+
+# Try to find the binary
+# First, check for the symlink/copy created by postinstall
+if [ -f "$SCRIPT_DIR/mana-mcp-binary" ]; then
+  exec "$SCRIPT_DIR/mana-mcp-binary" "$@"
+fi
+
+# Fallback: detect platform and find the specific binary
+OS=$(uname -s | tr '[:upper:]' '[:lower:]')
+ARCH=$(uname -m)
+
+case "$ARCH" in
+  x86_64|amd64) ARCH="x64" ;;
+  arm64|aarch64) ARCH="arm64" ;;
+esac
+
+case "$OS" in
+  darwin) BINARY_NAME="mana-mcp-darwin-$ARCH" ;;
+  linux) BINARY_NAME="mana-mcp-linux-x64" ;;
+  *)
+    echo "Error: Unsupported OS: $OS" >&2
+    exit 1
+    ;;
+esac
+
+BINARY_PATH="$SCRIPT_DIR/$BINARY_NAME"
+
+if [ -f "$BINARY_PATH" ]; then
+  exec "$BINARY_PATH" "$@"
+fi
+
+# Binary not found - postinstall may have failed
+echo "Error: MANA binary not found at $BINARY_PATH" >&2
+echo "Try reinstalling: npm install -g @scottymade/mana-mcp" >&2
+exit 1

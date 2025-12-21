@@ -7,10 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.0.0] - 2024-XX-XX
+## [1.0.0] - 2025-12-21
 
 ### Added
 - Initial public release
+- npm package distribution (`npm install -g @scottymade/mana-mcp`)
+- Project setup script for quick configuration
 - Core MCP tools:
   - `read_optimized` - Smart file reading with action-based optimization
   - `read_optimized_batch` - Batch file processing for multiple files
@@ -21,12 +23,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Action types for fine-grained optimization:
   - SUMMARIZE, EXTRACT, READ_FULL, CHECK, FORMAT, DEBUG_LOGS, GIT_CONFIG
   - Batch types: EXTRACT_BATCH, EXTRACT_SYNTHESIZE_BATCH
-- Claude Code Plugin Marketplace integration
-- Universal install script for cross-IDE support
-- Cross-platform binaries (macOS ARM64/x64, Linux x64, Windows x64)
+- Cross-platform binaries (macOS ARM64/x64, Linux x64)
 
 ### Platforms
 - macOS Apple Silicon (darwin-arm64)
 - macOS Intel (darwin-x64)
 - Linux x64 (linux-x64)
-- Windows x64 (windows-x64)
