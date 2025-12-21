@@ -156,7 +156,7 @@ Want MANA active in every project without per-project configuration? Use user-sc
 ### Option A: CLI Command (Recommended)
 
 ```bash
-claude mcp add mana -s user -- mana-mcp --api-key=YOUR_API_KEY
+claude mcp add -s user mana -- mana-mcp --api-key=YOUR_API_KEY
 ```
 
 ### Option B: Manual Configuration
