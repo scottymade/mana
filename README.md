@@ -149,6 +149,43 @@ curl -fsSL https://raw.githubusercontent.com/scottymade/mana/main/project-setup.
 
 ---
 
+## Global Setup (All Projects)
+
+Want MANA active in every project without per-project configuration? Use user-scoped setup:
+
+### Option A: CLI Command (Recommended)
+
+```bash
+claude mcp add mana -s user -- mana-mcp --api-key=YOUR_API_KEY
+```
+
+### Option B: Manual Configuration
+
+Add to `~/.claude.json`:
+
+```json
+{
+  "mcpServers": {
+    "mana": {
+      "command": "mana-mcp",
+      "args": ["--api-key=YOUR_API_KEY"]
+    }
+  }
+}
+```
+
+### Global Claude Instructions
+
+To use MANA tools globally (without adding `CLAUDE.md` to each project):
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/scottymade/mana/main/instructions/CLAUDE_INSTRUCTIONS.md >> ~/.claude/CLAUDE.md
+```
+
+> **Note:** Project-level `CLAUDE.md` files will still be read and can override or extend global instructions.
+
+---
+
 ## Verify It's Working
 
 After setup, ask Claude to read a file:
