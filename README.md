@@ -6,8 +6,8 @@
   <a href="https://github.com/scottymade/mana/releases">
     <img src="https://img.shields.io/github/v/release/scottymade/mana" alt="Version">
   </a>
-  <a href="https://www.npmjs.com/package/@scottymade/mana-mcp">
-    <img src="https://img.shields.io/npm/v/@scottymade/mana-mcp" alt="npm">
+  <a href="https://www.npmjs.com/package/@scottymade/mana">
+    <img src="https://img.shields.io/npm/v/@scottymade/mana" alt="npm">
   </a>
   <a href="https://github.com/scottymade/mana/releases">
     <img src="https://img.shields.io/badge/platform-macOS%20%7C%20Linux-lightgrey.svg" alt="Platforms">
@@ -104,7 +104,7 @@ flowchart TB
 ### Step 1: Install MANA
 
 ```bash
-npm install -g @scottymade/mana-mcp
+npm install -g @scottymade/mana
 ```
 
 Get your API key at [devmana.ai](https://devmana.ai) → **Settings** → **API Keys**
@@ -198,7 +198,7 @@ Without this file, Claude will use its built-in tools and you won't get any toke
 Make sure the npm package is installed globally:
 
 ```bash
-npm install -g @scottymade/mana-mcp
+npm install -g @scottymade/mana
 
 # Verify it's in PATH
 which mana-mcp
