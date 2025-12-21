@@ -1,0 +1,43 @@
+{
+  "name": "@scottymade/mana-mcp",
+  "version": "1.0.0",
+  "description": "MANA - LLM Token Usage Optimizer for Claude Code",
+  "keywords": [
+    "claude",
+    "claude-code",
+    "mcp",
+    "token-optimization",
+    "llm"
+  ],
+  "author": "ScottyMade <hi@scottymadellc.com>",
+  "license": "Apache-2.0",
+  "homepage": "https://devmana.ai",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scottymade/mana"
+  },
+  "bugs": {
+    "url": "https://github.com/scottymade/mana/issues"
+  },
+  "bin": {
+    "mana-mcp": "./bin/mana-mcp"
+  },
+  "scripts": {
+    "postinstall": "node scripts/postinstall.js"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "os": [
+    "darwin",
+    "linux"
+  ],
+  "cpu": [
+    "x64",
+    "arm64"
+  ],
+  "files": [
+    "bin/",
+    "scripts/"
+  ]
+}

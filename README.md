@@ -6,8 +6,11 @@
   <a href="https://github.com/scottymade/mana/releases">
     <img src="https://img.shields.io/github/v/release/scottymade/mana" alt="Version">
   </a>
+  <a href="https://www.npmjs.com/package/@scottymade/mana-mcp">
+    <img src="https://img.shields.io/npm/v/@scottymade/mana-mcp" alt="npm">
+  </a>
   <a href="https://github.com/scottymade/mana/releases">
-    <img src="https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey.svg" alt="Platforms">
+    <img src="https://img.shields.io/badge/platform-macOS%20%7C%20Linux-lightgrey.svg" alt="Platforms">
   </a>
   <a href="https://devmana.ai">
     <img src="https://img.shields.io/badge/Claude%20Code-MCP%20Server-purple.svg" alt="Claude Code MCP Server">
@@ -53,7 +56,7 @@ Claude casts Locate Object to find a file. Miss. Recasts with new keywords. Miss
 
 ## How It Works
 
-**What If You Had a Mana Regen Buff Running 24/7?** 
+**What If You Had a Mana Regen Buff Running 24/7?**
 
 **_That's Mana._**
 
@@ -98,103 +101,51 @@ flowchart TB
 
 ## Quick Start
 
-### Step 1: Get Your API Key
+### Step 1: Install MANA
 
-1. Sign up at [devmana.ai](https://devmana.ai)
-2. Go to **Settings > API Keys**
-3. Click **Create API Key**
-4. Copy your key (you'll need it in Step 2)
+```bash
+npm install -g @scottymade/mana-mcp
+```
 
-### Step 2: Install MANA
+Get your API key at [devmana.ai](https://devmana.ai) → **Settings** → **API Keys**
 
-Choose **Project Install** (recommended) or **Global Install**:
+### Step 2: Configure Your Project
 
----
+In your project directory, create two files:
 
-#### Option A: Project Install (Recommended)
+**1. Create `.mcp.json`** (MCP server config):
 
-Installs MANA for a single project. Run this **in your project directory**:
+```json
+{
+  "mcpServers": {
+    "mana": {
+      "command": "mana-mcp",
+      "args": ["--api-key=YOUR_API_KEY"]
+    }
+  }
+}
+```
+
+**2. Add instructions to `CLAUDE.md`** (teaches Claude to use MANA tools):
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/scottymade/mana/main/instructions/CLAUDE_INSTRUCTIONS.md >> CLAUDE.md
+```
+
+> **Tip:** Add `.mcp.json` to your `.gitignore` to keep your API key private.
+
+**Or run the setup script** to do both automatically:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/scottymade/mana/main/project-setup.sh | bash -s -- YOUR_API_KEY
 ```
 
-This script automatically:
-- Downloads the MANA MCP server binary
-- Creates `.mcp.json` with your API key
-- Installs Claude instructions (`.claude/CLAUDE.md`)
-
-> **Note:** Add `.mcp.json` to your `.gitignore` to keep your API key private.
-
-**That's it!** Restart Claude Code and run `/mcp` to verify MANA is connected.
-
 ---
 
-#### Option B: Global Install
+### Restart Claude Code and start saving tons of Mana!
 
-Installs MANA for all projects. Coming soon!
-
-<!--
-```bash
-curl -fsSL https://raw.githubusercontent.com/scottymade/mana/main/global-setup.sh | bash -s -- YOUR_API_KEY
-```
--->
-
----
-
-### Manual Installation (Optional)
-
-If you prefer to install components separately, or need to add Claude instructions to an existing global config:
-
-#### Install Claude Instructions Manually
-
-MANA requires instructions that tell Claude to use MANA's optimized tools. If you used the project setup script above, this is already done. Otherwise:
-
-**Global (applies to all projects):**
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/scottymade/mana/main/instructions/CLAUDE_INSTRUCTIONS.md >> ~/.claude/CLAUDE.md
-```
-
-**Per-project:**
-
-```bash
-mkdir -p .claude
-curl -fsSL https://raw.githubusercontent.com/scottymade/mana/main/instructions/CLAUDE_INSTRUCTIONS.md >> .claude/CLAUDE.md
-```
-<!-- 
-#### For Cursor
-
-```bash
-# Download to your rules folder
-mkdir -p ~/.cursor/rules
-curl -fsSL https://raw.githubusercontent.com/scottymade/mana/main/instructions/CLAUDE_INSTRUCTIONS.md -o ~/.cursor/rules/mana.md
-```
-
-Or for a specific project:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/scottymade/mana/main/instructions/CLAUDE_INSTRUCTIONS.md >> .cursorrules
-```
-
-#### For Windsurf
-
-```bash
-# Add to your project
-curl -fsSL https://raw.githubusercontent.com/scottymade/mana/main/instructions/CLAUDE_INSTRUCTIONS.md >> .windsurfrules
-```
--->
-
-#### What the Instructions File Does
-
-The instructions file teaches Claude to:
-
-- Use `read_optimized` instead of the native `Read` tool
-- Use `bash_optimized` instead of the native `Bash` tool
-- Use `search_optimized` instead of `Glob` and `Grep`
-- Use `list_directory_optimized` for directory listings
-
-Without this file, Claude will use its built-in tools and you won't get any token savings. **This step is required for MANA to work.**
+1. Restart Claude Code in your project
+2. Run `/mcp` to verify MANA is connected
 
 ---
 
@@ -216,42 +167,55 @@ If you see token savings in the output, MANA is working.
 
 ---
 
+## What the Instructions File Does
+
+The `CLAUDE.md` file teaches Claude to:
+
+- Use `read_optimized` instead of the native `Read` tool
+- Use `bash_optimized` instead of the native `Bash` tool
+- Use `search_optimized` instead of `Glob` and `Grep`
+- Use `list_directory_optimized` for directory listings
+
+Without this file, Claude will use its built-in tools and you won't get any token savings. **This step is required for MANA to work.**
+
+---
+
 ## Troubleshooting
 
 ### "Command not found" error
 
-Make sure the binary is in your PATH:
+Make sure the npm package is installed globally:
 
 ```bash
-# Check if installed
-which mana-mcp
+npm install -g @scottymade/mana-mcp
 
-# If not found, add to PATH or use full path in config
-export PATH="$HOME/.local/bin:$PATH"
+# Verify it's in PATH
+which mana-mcp
 ```
 
 ### Claude isn't using MANA tools
 
-1. Verify the instructions file is installed (check `.claude/CLAUDE.md` exists)
-2. Restart your IDE after making changes
-3. Check that the instructions appear in your IDE's context
+1. Verify `CLAUDE.md` exists in your project root
+2. Restart Claude Code after making changes
+3. Check that the instructions appear in Claude's context
 
 ### "Invalid API key" error
 
 1. Verify your key at [devmana.ai/settings](https://devmana.ai/settings)
-2. Check for typos in your config file
+2. Check for typos in `.mcp.json`
 3. Ensure the key hasn't been revoked
 
 ### API Usage
-- Check your API usage on your [Mana Dashboard](https://app.devmana.ai/)
+
+Check your API usage on your [Mana Dashboard](https://app.devmana.ai/)
 
 ---
 
 ## Support
 
-- **Documentation**: [Installation Docs](https://github.com/scottymade/mana/)
+- **Documentation**: [GitHub](https://github.com/scottymade/mana/)
 - **Issues**: [GitHub Issues](https://github.com/scottymade/mana/issues)
-- **Bugs, Feedback and Feature Requests** can be sent via the chat feature in your [Mana Dashboard](https://app.devmana.ai/).
+- **Bugs, Feedback and Feature Requests** can be sent via the chat feature in your [Mana Dashboard](https://app.devmana.ai/)
 
 ---
 
