@@ -109,36 +109,47 @@ npm install -g @scottymade/mana-mcp
 
 Get your API key at [devmana.ai](https://devmana.ai) → **Settings** → **API Keys**
 
-### Step 2: Configure Your Project
+### Step 2: Add MCP Server
 
-In your project directory, create two files:
-
-**1. Create `.mcp.json`** (MCP server config):
-
-```json
-{
-  "mcpServers": {
-    "mana": {
-      "command": "mana-mcp",
-      "args": ["--api-key=YOUR_API_KEY"]
-    }
-  }
-}
-```
-
-**2. Add instructions to `CLAUDE.md`** (teaches Claude to use MANA tools):
+**2a. Project only** (run from your project root):
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/scottymade/mana/main/instructions/CLAUDE_INSTRUCTIONS.md >> CLAUDE.md
+claude mcp add -s project mana -- mana-mcp --api-key=YOUR_API_KEY
 ```
 
-> **Tip:** Add `.mcp.json` to your `.gitignore` to keep your API key private.
-
-**Or run the setup script** to do both automatically:
+**2b. Global** (run from anywhere, applies to all projects):
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/scottymade/mana/main/project-setup.sh | bash -s -- YOUR_API_KEY
+claude mcp add -s user mana -- mana-mcp --api-key=YOUR_API_KEY
 ```
+
+> **Note:** Project-level configs override global. You can mix and match (e.g., global MCP server + per-project instructions).
+
+### Step 3: Add Claude Instructions
+
+#### Manual Install
+
+Copy the contents of [CLAUDE_INSTRUCTIONS.md](https://github.com/scottymade/mana/blob/main/instructions/CLAUDE_INSTRUCTIONS.md) and **prepend** it to the beginning of your CLAUDE.md file:
+
+**3a. Project only:** Prepend to `CLAUDE.md` in your project root
+
+**3b. Global:** Prepend to `~/.claude/CLAUDE.md`
+
+#### Automatic Install
+
+**3a. Project only** (run from your project root):
+
+```bash
+{ curl -fsSL https://raw.githubusercontent.com/scottymade/mana/main/instructions/CLAUDE_INSTRUCTIONS.md; echo ""; echo "---"; echo ""; cat CLAUDE.md 2>/dev/null; } > CLAUDE.md.tmp && mv CLAUDE.md.tmp CLAUDE.md
+```
+
+**3b. Global** (run from anywhere, applies to all projects):
+
+```bash
+{ curl -fsSL https://raw.githubusercontent.com/scottymade/mana/main/instructions/CLAUDE_INSTRUCTIONS.md; echo ""; echo "---"; echo ""; cat ~/.claude/CLAUDE.md 2>/dev/null; } > ~/.claude/CLAUDE.md.tmp && mv ~/.claude/CLAUDE.md.tmp ~/.claude/CLAUDE.md
+```
+
+> **Note:** These commands prepend MANA instructions to existing files. Your existing CLAUDE.md content will be preserved below the MANA instructions.
 
 ---
 
@@ -146,43 +157,6 @@ curl -fsSL https://raw.githubusercontent.com/scottymade/mana/main/project-setup.
 
 1. Restart Claude Code in your project
 2. Run `/mcp` to verify MANA is connected
-
----
-
-## Global Setup (All Projects)
-
-Want MANA active in every project without per-project configuration? Use user-scoped setup:
-
-### Option A: CLI Command (Recommended)
-
-```bash
-claude mcp add -s user mana -- mana-mcp --api-key=YOUR_API_KEY
-```
-
-### Option B: Manual Configuration
-
-Add to `~/.claude.json`:
-
-```json
-{
-  "mcpServers": {
-    "mana": {
-      "command": "mana-mcp",
-      "args": ["--api-key=YOUR_API_KEY"]
-    }
-  }
-}
-```
-
-### Global Claude Instructions
-
-To use MANA tools globally (without adding `CLAUDE.md` to each project):
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/scottymade/mana/main/instructions/CLAUDE_INSTRUCTIONS.md >> ~/.claude/CLAUDE.md
-```
-
-> **Note:** Project-level `CLAUDE.md` files will still be read and can override or extend global instructions.
 
 ---
 
@@ -232,14 +206,14 @@ which mana-mcp
 
 ### Claude isn't using MANA tools
 
-1. Verify `CLAUDE.md` exists in your project root
+1. Verify `CLAUDE.md` exists (project root or `~/.claude/CLAUDE.md` for global)
 2. Restart Claude Code after making changes
 3. Check that the instructions appear in Claude's context
 
 ### "Invalid API key" error
 
 1. Verify your key at [devmana.ai/settings](https://devmana.ai/settings)
-2. Check for typos in `.mcp.json`
+2. Re-run the `claude mcp add` command with the correct key
 3. Ensure the key hasn't been revoked
 
 ### API Usage
