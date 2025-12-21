@@ -114,13 +114,13 @@ Get your API key at [devmana.ai](https://devmana.ai) → **Settings** → **API 
 **2a. Project only** (run from your project root):
 
 ```bash
-claude mcp add -s project mana -- mana-mcp --api-key=YOUR_API_KEY
+claude mcp add -s project mana -- mana --api-key=YOUR_API_KEY
 ```
 
 **2b. Global** (run from anywhere, applies to all projects):
 
 ```bash
-claude mcp add -s user mana -- mana-mcp --api-key=YOUR_API_KEY
+claude mcp add -s user mana -- mana --api-key=YOUR_API_KEY
 ```
 
 > **Note:** Project-level configs override global. You can mix and match (e.g., global MCP server + per-project instructions).
@@ -201,7 +201,7 @@ Make sure the npm package is installed globally:
 npm install -g @scottymade/mana
 
 # Verify it's in PATH
-which mana-mcp
+which mana
 ```
 
 ### Claude isn't using MANA tools

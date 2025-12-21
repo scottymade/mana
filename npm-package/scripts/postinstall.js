@@ -120,8 +120,8 @@ async function main() {
   // Make it executable
   fs.chmodSync(binaryPath, 0o755);
 
-  // Create a symlink or copy as 'mana-mcp-binary' so the wrapper can find it
-  const symlinkPath = path.join(binDir, 'mana-mcp-binary');
+  // Create a symlink or copy as 'mana-binary' so the wrapper can find it
+  const symlinkPath = path.join(binDir, 'mana-binary');
   try {
     if (fs.existsSync(symlinkPath)) {
       fs.unlinkSync(symlinkPath);

@@ -24,7 +24,7 @@ Sign up at [devmana.ai](https://devmana.ai) and create an API key.
 {
   "mcpServers": {
     "mana": {
-      "command": "mana-mcp",
+      "command": "mana",
       "args": ["--api-key=YOUR_API_KEY"]
     }
   }
