@@ -1,4 +1,4 @@
-# @scottymade/mana-mcp
+# @scottymade/mana
 
 MANA - LLM Token Usage Optimizer for Claude Code
 
@@ -7,7 +7,7 @@ Optimizes token-heavy tool outputs, saving 50-80% on every operation. Double you
 ## Installation
 
 ```bash
-npm install -g @scottymade/mana-mcp
+npm install -g @scottymade/mana
 ```
 
 ## Setup
