@@ -4,43 +4,45 @@ MANA - LLM Token Usage Optimizer for Claude Code
 
 Optimizes token-heavy tool outputs, saving 50-80% on every operation. Double your Claude Code usage.
 
-## Installation
+## Quick Start
+
+### Step 1: Install MANA
 
 ```bash
 npm install -g @scottymade/mana
 ```
 
-## Setup
+Get your API key at [devmana.ai](https://devmana.ai) → **Settings** → **API Keys**
 
-After installing, you need to configure MANA for your project:
+### Step 2: Add MCP Server
 
-### 1. Get Your API Key
-
-Sign up at [devmana.ai](https://devmana.ai) and create an API key.
-
-### 2. Create `.mcp.json` in your project
-
-```json
-{
-  "mcpServers": {
-    "mana": {
-      "command": "mana",
-      "args": ["--api-key=YOUR_API_KEY"]
-    }
-  }
-}
-```
-
-### 3. Add Claude Instructions
-
-Add the MANA instructions to `.claude/CLAUDE.md` in your project:
+**2a. Project only** (run from your project root):
 
 ```bash
-mkdir -p .claude
-curl -fsSL https://raw.githubusercontent.com/scottymade/mana/main/instructions/CLAUDE_INSTRUCTIONS.md >> .claude/CLAUDE.md
+claude mcp add -s project mana -- mana --api-key=YOUR_API_KEY
 ```
 
-### 4. Restart Claude Code
+**2b. Global** (run from anywhere, applies to all projects):
+
+```bash
+claude mcp add -s user mana -- mana --api-key=YOUR_API_KEY
+```
+
+### Step 3: Add Claude Instructions
+
+**3a. Project only** (run from your project root):
+
+```bash
+{ curl -fsSL https://raw.githubusercontent.com/scottymade/mana/main/instructions/CLAUDE_INSTRUCTIONS.md; echo ""; echo "---"; echo ""; cat CLAUDE.md 2>/dev/null; } > CLAUDE.md.tmp && mv CLAUDE.md.tmp CLAUDE.md
+```
+
+**3b. Global** (run from anywhere, applies to all projects):
+
+```bash
+{ curl -fsSL https://raw.githubusercontent.com/scottymade/mana/main/instructions/CLAUDE_INSTRUCTIONS.md; echo ""; echo "---"; echo ""; cat ~/.claude/CLAUDE.md 2>/dev/null; } > ~/.claude/CLAUDE.md.tmp && mv ~/.claude/CLAUDE.md.tmp ~/.claude/CLAUDE.md
+```
+
+### Step 4: Restart Claude Code
 
 Run `/mcp` to verify MANA is connected.
 
