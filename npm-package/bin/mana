@@ -9,8 +9,14 @@
 
 set -e
 
-# Get the directory where this script is located
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+# Get the directory where this script is located (resolving symlinks)
+SOURCE="$0"
+while [ -L "$SOURCE" ]; do
+  DIR="$(cd -P "$(dirname "$SOURCE")" && pwd)"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
+done
+SCRIPT_DIR="$(cd -P "$(dirname "$SOURCE")" && pwd)"
 
 # Try to find the binary
 # First, check for the symlink/copy created by postinstall
