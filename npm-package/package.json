@@ -20,7 +20,7 @@
     "url": "https://github.com/scottymade/mana/issues"
   },
   "bin": {
-    "mana-mcp": "./bin/mana-mcp"
+    "mana": "./bin/mana"
   },
   "scripts": {
     "postinstall": "node scripts/postinstall.js"

@@ -2,7 +2,7 @@
 # ============================================================================
 # MANA MCP - Wrapper Script
 # ============================================================================
-# This script is the entry point for the mana-mcp command.
+# This script is the entry point for the mana command.
 # It finds and executes the platform-specific binary that was downloaded
 # during npm postinstall.
 # ============================================================================
@@ -14,8 +14,8 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 # Try to find the binary
 # First, check for the symlink/copy created by postinstall
-if [ -f "$SCRIPT_DIR/mana-mcp-binary" ]; then
-  exec "$SCRIPT_DIR/mana-mcp-binary" "$@"
+if [ -f "$SCRIPT_DIR/mana-binary" ]; then
+  exec "$SCRIPT_DIR/mana-binary" "$@"
 fi
 
 # Fallback: detect platform and find the specific binary
@@ -44,5 +44,5 @@ fi
 
 # Binary not found - postinstall may have failed
 echo "Error: MANA binary not found at $BINARY_PATH" >&2
-echo "Try reinstalling: npm install -g @scottymade/mana-mcp" >&2
+echo "Try reinstalling: npm install -g @scottymade/mana" >&2
 exit 1
