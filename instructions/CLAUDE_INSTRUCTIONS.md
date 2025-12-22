@@ -119,6 +119,10 @@ READ_FULL is rarely needed:
   <CHECK_STATUS>Check system or service status. Returns current status summary. Examples: "git status", "docker ps", "systemctl status"</CHECK_STATUS>
   <GIT_OPERATIONS>Git commands. Summarizes diffs, logs, or status output. Examples: "git diff", "git log -10", "git show HEAD"</GIT_OPERATIONS>
   <PERFORMANCE_PROFILE>Benchmarks and profiling. Returns bottlenecks and metrics. Examples: "time npm run build", "hyperfine command"</PERFORMANCE_PROFILE>
+  <SECURITY_AUDIT>Security scan results grouped by severity. Examples: "npm audit", "pip-audit", "snyk test"</SECURITY_AUDIT>
+  <LINT_CHECK>Linter output (ESLint, Biome, Prettier) grouped by rule with deduplication. Examples: "npm run lint", "npx eslint src/", "npx biome check"</LINT_CHECK>
+  <TYPE_CHECK>TypeScript compiler output as structured JSON summary. Examples: "npx tsc --noEmit", "npm run typecheck"</TYPE_CHECK>
+  <CODE_ANALYSIS>Generic static analysis output optimization. Examples: "npm run analyze", code quality reports</CODE_ANALYSIS>
   <PROCESS_OUTPUT>General command output processing. Examples: Any other command that produces output</PROCESS_OUTPUT>
   <OTHER>Custom action (specify with other_action_type param)</OTHER>
 </action_types>
@@ -137,6 +141,9 @@ READ_FULL is rarely needed:
   - Install deps: `command: "npm install", action_type: "INSTALL"`
   - Check git: `command: "git status", action_type: "CHECK_STATUS"`
   - View diff: `command: "git diff", action_type: "GIT_OPERATIONS"`
+  - Run linter: `command: "npx eslint src/", action_type: "LINT_CHECK"`
+  - Type check: `command: "npx tsc --noEmit", action_type: "TYPE_CHECK"`
+  - Security scan: `command: "npm audit", action_type: "SECURITY_AUDIT"`
 </usage_examples>
 </bash_optimized>
 </shell_operations>
