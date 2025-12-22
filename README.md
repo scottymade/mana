@@ -191,6 +191,32 @@ Without this file, Claude will use its built-in tools and you won't get any toke
 
 ---
 
+## How to Update MANA
+
+To get the latest version of MANA:
+
+```bash
+npm update -g @scottymade/mana
+```
+
+Or install a specific version:
+
+```bash
+npm install -g @scottymade/mana@latest
+```
+
+This will update both the npm package and automatically download the latest binary.
+
+After updating, restart Claude Code to use the new version.
+
+**Check your current version:**
+
+```bash
+npm list -g @scottymade/mana
+```
+
+---
+
 ## Troubleshooting
 
 ### "Command not found" error
