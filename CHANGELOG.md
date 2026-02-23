@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-02-23
+
+### Added
+- MCP sub-server proxy — proxy and multiplex child MCP servers via meta-tools (`mana_list_tools`, `mana_describe_tool`, `mana_call_tool`)
+- Dynamic meta-tool descriptions — connected sub-server names and tool names are surfaced directly in tool schema, so the LLM knows what's available without calling any tool first
+- Daemon mode with session multiplexing for concurrent MCP connections
+- Tier-gated features — proxy (Wizard+) and multiplexing (Archmage) gated by subscription plan
+- Project-level config support (`.mana-mcp.json`) with priority: CLI flag > project > user-level config
+- `index_codebase` tool for building searchable code indices
+- Windows x64 binary support
+
+### Fixed
+- Removed env var backdoors (`MANA_ENABLE_MCP_PROXY`, `MANA_ENABLE_MULTIPLEXING`) that bypassed tier-gating
+
 ## [1.0.0] - 2025-12-21
 
 ### Added
