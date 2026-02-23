@@ -238,7 +238,7 @@ which mana
 
 ### "Invalid API key" error
 
-1. Verify your key at [devmana.ai/settings](https://devmana.ai/settings)
+1. Create a new API key in the Dashboard [app.devmana.ai](https://app.devmana.ai)
 2. Re-run the `claude mcp add` command with the correct key
 3. Ensure the key hasn't been revoked
 
