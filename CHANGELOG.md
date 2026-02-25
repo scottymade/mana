@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.1] - 2026-02-25
+
+### Fixed
+- Fix subscription feature check for MCP sub-server proxy initialization
+
 ## [1.1.0] - 2026-02-23
 
 ### Added
