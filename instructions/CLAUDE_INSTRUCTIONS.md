@@ -1,3 +1,4 @@
+<mana>
 # MANA Token Optimization - MANDATORY TOOL REPLACEMENTS
 
 **CRITICAL: NEVER use native Read, Bash, Search, Grep, or Glob tools. ALWAYS use MANA optimized versions.**
@@ -125,3 +126,4 @@ Do NOT file bugs for one-time transient errors (retry first).
 **Examples:**
 - Bug: `type: "bug", subtype: "tool_error", tool_name: "bash_optimized", description: "npm install times out after 30s with INSTALL action"`
 - Feature: `type: "feature", subtype: "new_tool_action", tool_name: "read_optimized", description: "A COMPARE action to diff two files"`
+</mana>
