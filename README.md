@@ -1,5 +1,7 @@
 <p align="center">
-  <img src="docs/mana-promo.png" alt="Mana - Double Your Claude Code Usage for 1/3 the Price" width="800">
+  <a href="https://devmana.ai">
+    <img src="docs/mana-promo.png" alt="Mana - Double Your Claude Code Usage for 1/3 the Price" width="800">
+  </a>
 </p>
 
 <p align="center">
@@ -22,7 +24,7 @@
 
 ---
 
-MANA optimizes the token-heavy tool outputs that eat through your Claude limits. File reads, command outputs, search results - they all get intelligently routed and compressed before reaching Claude, saving 50-80% of tokens on every operation. Keeping your context lean and keeping you coding longer without hitting usage caps!
+<a href="https://devmana.ai">MANA</a> optimizes the token-heavy tool outputs that eat through your Claude limits. File reads, command outputs, search results - they all get intelligently routed and compressed before reaching Claude, saving 50-80% of tokens on every operation. Keeping your context lean and keeping you coding longer without hitting usage caps!
 
 **Result: 2x the coding sessions with no change to your workflow.**
 
@@ -96,6 +98,16 @@ flowchart TB
 | Claude Max $200 | 500 hours | **1000 hours** |
 
 **Same Claude intelligence. Double the hours. A fraction of the price!**
+
+---
+
+## Mana Dashboard
+
+<p align="center">
+  <a href="https://waitlist.devmana.ai">
+    <img src="docs/mana-dashboard.png" alt="Mana Dashboard" width="800">
+  </a>
+</p>
 
 ---
 
