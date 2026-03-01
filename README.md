@@ -12,13 +12,10 @@
     <img src="https://img.shields.io/npm/v/@scottymade/mana" alt="npm">
   </a>
   <a href="https://github.com/scottymade/mana/releases">
-    <img src="https://img.shields.io/badge/platform-macOS%20%7C%20Linux-lightgrey.svg" alt="Platforms">
+    <img src="https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey.svg" alt="Platforms">
   </a>
   <a href="https://devmana.ai">
     <img src="https://img.shields.io/badge/AI%20Coding%20Agent-MCP%20Server-purple.svg" alt="Mana AI Coding Agent MCP Server">
-  </a>
-  <a href="https://github.com/scottymade/mana/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/scottymade/mana" alt="License">
   </a>
 </p>
 
