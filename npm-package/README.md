@@ -1,5 +1,7 @@
 <p align="center">
-  <img src="docs/mana-promo.png" alt="Mana - Double Your Claude Code Usage for 1/3 the Price" width="800">
+  <a href="https://devmana.ai">
+    <img src="docs/mana-promo.png" alt="Mana - Boss-Tier AI. Minion-Tier Costs. Save 50-70% on AI Coding API Costs" width="800">
+  </a>
 </p>
 
 <p align="center">
@@ -13,7 +15,7 @@
     <img src="https://img.shields.io/badge/platform-macOS%20%7C%20Linux-lightgrey.svg" alt="Platforms">
   </a>
   <a href="https://devmana.ai">
-    <img src="https://img.shields.io/badge/Claude%20Code-MCP%20Server-purple.svg" alt="Claude Code MCP Server">
+    <img src="https://img.shields.io/badge/AI%20Coding%20Agent-MCP%20Server-purple.svg" alt="Mana AI Coding Agent MCP Server">
   </a>
   <a href="https://github.com/scottymade/mana/blob/main/LICENSE">
     <img src="https://img.shields.io/github/license/scottymade/mana" alt="License">
@@ -22,9 +24,9 @@
 
 ---
 
-MANA optimizes the token-heavy tool outputs that eat through your Claude limits. File reads, command outputs, search results - they all get intelligently routed and compressed before reaching Claude, saving 50-80% of tokens on every operation. Keeping your context lean and keeping you coding longer without hitting usage caps!
+<a href="https://devmana.ai">MANA</a> intercepts bloated tool responses and routes them through lightweight models benchmarked for task accuracy. File reads, bash outputs, search results, and MCP calls — all optimized before reaching your AI coding agent, saving 50-70% on API costs. Your agent keeps its full power for the boss fights — architecture, debugging, code generation. The minion work gets handled for a fraction of the cost.
 
-**Result: 2x the coding sessions with no change to your workflow.**
+**Result: Same AI intelligence. 50-70% less spend. No change to your workflow.**
 
 ---
 
@@ -34,52 +36,40 @@ MANA optimizes the token-heavy tool outputs that eat through your Claude limits.
 
 ### File Operations Are Mana Vampires
 
-Claude Code reads an entire component file. 2,847 lines. Only 40 were relevant to your query. That's 2,800+ wasted tokens per file op. One trash mob just ate your spell slots.
+Your AI agent reads an entire component file. 2,847 lines. Only 40 were relevant to your query. That's 2,800+ wasted tokens per file op. One trash mob just ate your spell slots.
 
 ### Bash Commands Siphon Mana on Every Cast
 
-You run `npm run test`. Claude gets back 5,000 tokens - suite names, timing breakdowns, coverage reports. You just needed to know: is the build alive? Mana bar blinked red for a pulse check.
+You run `npm run test`. Your AI agent gets back 5,000 tokens - suite names, timing breakdowns, coverage reports. You just needed to know: is the build alive? Mana bar blinked red for a pulse check.
 
 ### Directory Searches Burn Through Reserves
 
-Claude casts Locate Object to find a file. Miss. Recasts with new keywords. Miss. Third cast, broader search. Nothing batched. That's 3x the tokens for one file path.
+Your AI agent casts Locate Object to find a file. Miss. Recasts with new keywords. Miss. Third cast, broader search. Nothing batched. That's 3x the tokens for one file path.
 
 ### It's a Wipe. Pull the Combat Log — Here's What Killed You.
 
-| 50-80% | 6-12h | 2-3x |
-|--------|-------|------|
-| of tokens go to tool bloat - not your actual work | actual grinding (from 25h) | faster bleed in large codebases |
+| 70-90% | MCP bloat | 2-3x |
+|--------|-----------|------|
+| of tokens go to tool bloat — not your actual work | unfiltered API calls draining mana on every lookup | faster bleed in large codebases |
 
-**You're not bad at token management. The trash mobs wiped your mana before you even reached the boss.**
+**You're not bad at token management. The debuff was running before you even started coding.**
 
 ---
 
 ## How It Works
 
-**What If You Had a Mana Regen Buff Running 24/7?**
+**Reclaim Your Mana Pool**
 
-**_That's Mana._**
+You don't need a bigger mana pool. You need to stop the drain on the one you have.
 
-We route Claude tool calls through our custom MCP server. When Claude Code reads a 3,000-line file, Mana intercepts the bloated response, routes it through more optimized models to extract only what's relevant to your quest, then sends the filtered result back.
+Mana saves 50-70% of your budget from going to bloated tool responses, unfiltered MCP calls, and brute-force file searches — routing the low-level work to optimized models so you stop paying boss rates for minion work.
 
-- Claude's full intelligence on architecture & code
-- Trash mobs handled by leaner models
+- Your AI agent's full intelligence on architecture & code
+- Minion work routed to minion-tier models
 - Your existing workflow, unchanged
 - Same firepower, at a fraction of the mana cost
 
-Claude still handles your architecture decisions, writing clean & concise code, complex debugging, and code reviews—the actual boss fights. It just stops wasting magic on tool outputs that didn't need Claude-level intelligence in the first place.
-
-```mermaid
-flowchart TB
-    USER[Your Prompt] --> CLAUDE[Claude]
-    CLAUDE --> |read_optimized| MANA[MANA MCP Server]
-    CLAUDE --> |bash_optimized| MANA
-    CLAUDE --> |search_optimized| MANA
-    MANA --> |Raw Content| API[MANA Optimization API]
-    API --> |Compressed| MANA
-    MANA --> |50-80% fewer tokens| CLAUDE
-    CLAUDE --> RESPONSE[Claude's Response]
-```
+Your AI coding agent keeps its full power for architecture, debugging, and code generation — the actual boss fights. Mana just stops it from burning spell slots on everything else.
 
 **Smart Routing** — Every tool action routes to a lightweight model benchmarked as the most accurate for that specific job.
 
@@ -87,82 +77,53 @@ flowchart TB
 
 **Compounding Savings** — Leaner responses mean leaner context. Savings stack with every turn. Longer sessions, fewer tokens burned.
 
-### Mana Pool: Doubled
+### Your API Budget, Stretched 2-3x Further
 
-| Plan | Before | With Mana |
-|------|--------|-----------|
-| Claude Pro | 25 hours | **50 hours** |
-| Claude Max $100 | 125 hours | **250 hours** |
-| Claude Max $200 | 500 hours | **1000 hours** |
+| Monthly API Spend | Estimated Waste | With Mana |
+|-------------------|-----------------|-----------|
+| $600/mo | ~$420 goes to bloat | **Save $300-420/mo** |
+| $1,500/mo | ~$1,050 goes to bloat | **Save $750-1,050/mo** |
+| $2,500/mo | ~$1,750 goes to bloat | **Save $1,250-1,750/mo** |
 
-**Same Claude intelligence. Double the hours. A fraction of the price!**
+**Same AI intelligence. 50-70% less spend. No change to your workflow.**
+
+---
+
+## Mana Dashboard
+
+<p align="center">
+  <a href="https://waitlist.devmana.ai">
+    <img src="docs/mana-dashboard.png" alt="Mana Dashboard" width="800">
+  </a>
+</p>
 
 ---
 
 ## Quick Start
 
-### Step 1: Install MANA
-
 ```bash
+# 1. Install
 npm install -g @scottymade/mana
+
+# 2. Setup (auto-detects your platforms, prompts for API key)
+mana setup
 ```
 
 Get your API key at [devmana.ai](https://devmana.ai) → **Settings** → **API Keys**
 
-### Step 2: Add MCP Server
+That's it. `mana setup` detects which AI coding platforms you have installed, configures MCP + prompt injection for each one, and you're ready to go.
 
-**2a. Project only** (run from your project root):
+### Supported Platforms
 
-```bash
-claude mcp add -s project mana -- mana --api-key=YOUR_API_KEY
-```
+Claude Code, OpenAI Codex, OpenCode, Cursor, Windsurf, GitHub Copilot, JetBrains AI, Cline, Roo Code, Continue.dev, Zed, Trae IDE, and Aider.
 
-**2b. Global** (run from anywhere, applies to all projects):
-
-```bash
-claude mcp add -s user mana -- mana --api-key=YOUR_API_KEY
-```
-
-> **Note:** Project-level configs override global. You can mix and match (e.g., global MCP server + per-project instructions).
-
-### Step 3: Add Claude Instructions
-
-#### Manual Install
-
-Copy the contents of [CLAUDE_INSTRUCTIONS.md](https://github.com/scottymade/mana/blob/main/instructions/CLAUDE_INSTRUCTIONS.md) and **prepend** it to the beginning of your CLAUDE.md file:
-
-**3a. Project only:** Prepend to `CLAUDE.md` in your project root
-
-**3b. Global:** Prepend to `~/.claude/CLAUDE.md`
-
-#### Automatic Install
-
-**3a. Project only** (run from your project root):
-
-```bash
-{ curl -fsSL https://raw.githubusercontent.com/scottymade/mana/main/instructions/CLAUDE_INSTRUCTIONS.md; echo ""; echo "---"; echo ""; cat CLAUDE.md 2>/dev/null; } > CLAUDE.md.tmp && mv CLAUDE.md.tmp CLAUDE.md
-```
-
-**3b. Global** (run from anywhere, applies to all projects):
-
-```bash
-{ curl -fsSL https://raw.githubusercontent.com/scottymade/mana/main/instructions/CLAUDE_INSTRUCTIONS.md; echo ""; echo "---"; echo ""; cat ~/.claude/CLAUDE.md 2>/dev/null; } > ~/.claude/CLAUDE.md.tmp && mv ~/.claude/CLAUDE.md.tmp ~/.claude/CLAUDE.md
-```
-
-> **Note:** These commands prepend MANA instructions to existing files. Your existing CLAUDE.md content will be preserved below the MANA instructions.
-
----
-
-### Restart Claude Code and start saving tons of Mana!
-
-1. Restart Claude Code in your project
-2. Run `/mcp` to verify MANA is connected
+### Restart your editor and start saving tons of Mana!
 
 ---
 
 ## Verify It's Working
 
-After setup, ask Claude to read a file:
+After setup, ask your agent to read a file:
 
 ```
 Read the package.json file and tell me what dependencies this project uses.
@@ -178,17 +139,175 @@ If you see token savings in the output, MANA is working.
 
 ---
 
-## What the Instructions File Does
+## What `mana setup` Does
 
-The `CLAUDE.md` file teaches Claude to:
+For each detected platform, `mana setup` handles two things automatically:
 
-- Use `read_optimized` instead of the native `Read` tool
-- Use `bash_optimized` instead of the native `Bash` tool
-- Use `search_optimized` instead of `Glob` and `Grep`
-- Use `list_directory_optimized` for directory listings
+1. **Prompt initialization** — Installs instructions that teach the AI to use MANA's optimized tools (`read_optimized`, `bash_optimized`, `search_optimized`, etc.) instead of native tools
+2. **MCP registration** — Registers the MANA MCP server so your platform can call MANA MCP sub-servers and their tools
 
-Without this file, Claude will use its built-in tools and you won't get any token savings. **This step is required for MANA to work.**
+Each platform has its own config format and file paths — `mana setup` handles all of it. Run `mana setup --uninstall` to cleanly remove everything.
 
+---
+
+## How to Update MANA
+
+```bash
+npm update -g @scottymade/mana
+```
+
+The update automatically refreshes the MANA prompt across all configured platforms. Restart your editor to use the new version.
+
+**Check your current version:**
+
+```bash
+npm list -g @scottymade/mana
+```
+
+---
+
+## Your Spellbook — Optimized Versions of Internal Tools
+
+*Every adventurer needs the right gear. These are your upgraded spell slots.*
+
+MANA swaps out your AI's clunky default tools for lean, optimized versions. Same spells, fraction of the mana cost. Your assistant learns them automatically from the prompt `mana setup` installs — no workflow changes, no new incantations to memorize.
+
+### The Arsenal
+
+| Spell | Replaces | What It Actually Does |
+|-------|----------|----------------------|
+| `read_optimized` | Native file read | Reads a 3,000-line file, returns only the 40 lines you needed |
+| `read_optimized_batch` | Multiple file reads | Raids multiple files in one cast. Efficient looting. |
+| `bash_optimized` | Native shell execution | Runs a command, strips the noise from the output |
+| `search_optimized` | Native grep/glob | Searches your codebase without burning a spell slot per miss |
+| `list_directory_optimized` | Native directory listing | Maps the dungeon without drawing every brick |
+| `git_optimized` | Native git commands | Git log, diff, status — compressed to what matters |
+
+### Spell Modifiers (Action Types)
+
+Each tool call carries an `action_type` — think of it as choosing between a cantrip and a full spell slot:
+
+| Modifier | When To Use | Mana Cost |
+|----------|------------|-----------|
+| `EXTRACT` | "Find the database config in this file" | Low — surgical extraction, returns only the hit |
+| `SUMMARIZE` | "What does this 500-line file do?" | Low — heavy compression, key points only |
+| `CHECK` | "Does this file import React?" | Minimal — yes/no, costs almost nothing |
+| `DEBUG_LOGS` | "Why is this test failing?" | Low — zeroes in on errors and stack traces |
+| `READ_FULL` | "I need every single line" | Full price — no optimization. The Wish spell of reads. Used sparingly. |
+
+---
+
+### Binding Your Familiars — MCP Sub-Server Setup
+
+Wizard plan users can setup MCP sub-servers that live behind our Mana optization.  MCPs you already use — GitLab, Brave Search, database tools, custom scripts, whatever's in your party. Instead of each agent spawning and managing them separately, MANA runs them all behind a single daemon. Your AI talks to MANA, MANA talks to your sub-servers, and every response that flows back gets the same token optimization treatment. One connection. All your tools. Leaner output on everything.
+
+Create a config file at `~/.mana/mcp-servers.json` (global) or `.mana-mcp.json` (per-project):
+
+```json
+{
+  "mcpServers": {
+    "gitlab": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-gitlab"],
+      "env": { "GITLAB_PERSONAL_ACCESS_TOKEN": "glpat-xxxxxxxxxxxx" }
+    },
+    "brave-search": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-brave-search"],
+      "env": { "BRAVE_API_KEY": "BSA..." }
+    },
+    "time": {
+      "command": "python",
+      "args": ["-m", "mcp_server_time", "--local-timezone=America/New_York"]
+    }
+  }
+}
+```
+
+Each familiar entry supports:
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `command` | string | The incantation to summon it (e.g., `npx`, `python`, `node`) |
+| `args` | string[] | Spell components |
+| `env` | object | Environment variables passed to the sub-server |
+| `cwd` | string | Working directory for the sub-server |
+| `transport` | `"stdio"` \| `"streamable-http"` | Transport type (default: `stdio`) |
+| `url` | string | URL for `streamable-http` transport (remote familiars) |
+| `enabled` | boolean | Set to `false` to bench a familiar without unbinding it |
+
+### Remote Familiars (Streamable HTTP)
+
+For remote/hosted MCP servers — summon from across the planes:
+
+```json
+{
+  "mcpServers": {
+    "my-remote-server": {
+      "transport": "streamable-http",
+      "url": "https://my-mcp-server.example.com/mcp"
+    }
+  }
+}
+```
+
+### Config Priority
+
+Configs load in priority order (highest first). Think of it as spell slot override rules:
+
+1. `--mcp-config=<path>` — CLI flag (DM override)
+2. `.mana-mcp.json` — Project directory (dungeon-specific)
+3. `~/.mana/mcp-servers.json` — Home directory (character sheet)
+
+### Commanding Your Familiars
+
+Sub-server tools are discoverable through three meta-spells:
+
+| Meta-Spell | What It Does |
+|------------|-------------|
+| `mana_list_tools` | Survey all available familiar abilities |
+| `mana_describe_tool` | Inspect a specific ability's full schema |
+| `mana_call_tool` | Command a familiar to act |
+
+Tools are namespaced as `server/tool_name` (e.g., `gitlab/create_issue`, `brave-search/web_search`).
+
+### Hot-Swapping Mid-Combat
+
+Edit your config file and changes are picked up automatically. Or run `mana reload` manually. Either way:
+
+- **Summoned** — New familiars connect and their abilities become available
+- **Dismissed** — Removed familiars disconnect cleanly
+- **Rebound** — Changed familiars reconnect with the new config
+- **Unbothered** — Unchanged familiars keep their existing connections
+
+No daemon restart. No editor restart. Swap your loadout without leaving the dungeon.
+
+---
+
+## The Archmage's Summon Circle — MCP Multiplexer
+
+*Archmage Tier only. For those who command more than one familiar.*
+
+Most devs juggle multiple MCP servers — GitLab, Brave Search, custom tools — each configured separately in every editor. That's like attuning to each magic item one at a time during combat.
+
+MANA's multiplexer lets you **summon all your MCP servers through a single daemon**. Configure once, use everywhere. And every response that flows through gets the same token optimization treatment.
+
+### Why Go Archmage?
+
+- **One config, all platforms** — Define your familiars once, summon them from any editor
+- **Token optimization on everything** — Sub-server responses get compressed too. No wasted mana.
+- **Auto-resurrect** — If a sub-server dies mid-fight, MANA raises it automatically
+- **Hot-swap** — Add or remove sub-servers without restarting anything. Swap gear mid-dungeon.
+- **Shared connections** — Multiple editors tap the same sub-server pool. Party-wide buffs.
+
+### Summoning the Daemon
+
+```bash
+mana start          # Summon the daemon (checks Archmage attunement)
+mana status         # Scry daemon status, PID, uptime
+mana reload         # Hot-reload sub-server config without restart
+mana stop           # Dismiss the daemon
+```
 ---
 
 ## Troubleshooting
@@ -204,16 +323,16 @@ npm install -g @scottymade/mana
 which mana
 ```
 
-### Claude isn't using MANA tools
+### AI assistant isn't using MANA tools
 
-1. Verify `CLAUDE.md` exists (project root or `~/.claude/CLAUDE.md` for global)
-2. Restart Claude Code after making changes
-3. Check that the instructions appear in Claude's context
+1. Run `mana setup` again to verify configuration
+2. Restart your editor after setup
+3. Check that MANA tools appear in your platform's MCP/tool list
 
 ### "Invalid API key" error
 
-1. Verify your key at [devmana.ai/settings](https://devmana.ai/settings)
-2. Re-run the `claude mcp add` command with the correct key
+1. Create a new API key in the Dashboard [app.devmana.ai](https://app.devmana.ai)
+2. Run `mana setup` again with the correct key
 3. Ensure the key hasn't been revoked
 
 ### API Usage
