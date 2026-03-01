@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://devmana.ai">
-    <img src="docs/mana-promo.png" alt="Mana - Boss-Tier AI. Minion-Tier Costs. Save 50-70% on AI Coding API Costs" width="800">
+    <img src="docs/mana-promo-api-spend.png" alt="Mana - Boss-Tier AI. Minion-Tier Costs. Save 50-70% on AI Coding API Costs" width="800">
   </a>
 </p>
 
@@ -62,14 +62,14 @@ Your AI agent casts Locate Object to find a file. Miss. Recasts with new keyword
 
 You don't need a bigger mana pool. You need to stop the drain on the one you have.
 
-Mana saves 50-70% of your budget from going to bloated tool responses, unfiltered MCP calls, and brute-force file searches — routing the low-level work to optimized models so you stop paying boss rates for minion work.
+<a href="https://devmana.ai">MANA</a> saves 50-70% of your budget from going to bloated tool responses, unfiltered MCP calls, and brute-force file searches — routing the low-level work to optimized models so you stop paying boss rates for minion work.
 
 - Your AI agent's full intelligence on architecture & code
 - Minion work routed to minion-tier models
 - Your existing workflow, unchanged
 - Same firepower, at a fraction of the mana cost
 
-Your AI coding agent keeps its full power for architecture, debugging, and code generation — the actual boss fights. Mana just stops it from burning spell slots on everything else.
+Your AI coding agent keeps its full power for architecture, debugging, and code generation — the actual boss fights. <a href="https://devmana.ai">MANA</a> just stops it from burning spell slots on everything else.
 
 **Smart Routing** — Every tool action routes to a lightweight model benchmarked as the most accurate for that specific job.
 
@@ -79,7 +79,7 @@ Your AI coding agent keeps its full power for architecture, debugging, and code 
 
 ### Your API Budget, Stretched 2-3x Further
 
-| Monthly API Spend | Estimated Waste | With Mana |
+| Monthly API Spend | Estimated Waste | With <a href="https://devmana.ai">MANA</a> |
 |-------------------|-----------------|-----------|
 | $600/mo | ~$420 goes to bloat | **Save $300-420/mo** |
 | $1,500/mo | ~$1,050 goes to bloat | **Save $750-1,050/mo** |
@@ -135,18 +135,7 @@ You should see output like:
 read_optimized [EXTRACT] -> 1,247 tokens saved (72% reduction) [1,732 -> 485]
 ```
 
-If you see token savings in the output, MANA is working.
-
----
-
-## What `mana setup` Does
-
-For each detected platform, `mana setup` handles two things automatically:
-
-1. **Prompt initialization** — Installs instructions that teach the AI to use MANA's optimized tools (`read_optimized`, `bash_optimized`, `search_optimized`, etc.) instead of native tools
-2. **MCP registration** — Registers the MANA MCP server so your platform can call MANA MCP sub-servers and their tools
-
-Each platform has its own config format and file paths — `mana setup` handles all of it. Run `mana setup --uninstall` to cleanly remove everything.
+If you see token savings in the output, <a href="https://devmana.ai">MANA</a> is working.
 
 ---
 
@@ -156,7 +145,7 @@ Each platform has its own config format and file paths — `mana setup` handles 
 npm update -g @scottymade/mana
 ```
 
-The update automatically refreshes the MANA prompt across all configured platforms. Restart your editor to use the new version.
+The update automatically refreshes the <a href="https://devmana.ai">MANA</a> prompt across all configured platforms. Restart your editor to use the new version.
 
 **Check your current version:**
 
@@ -166,40 +155,30 @@ npm list -g @scottymade/mana
 
 ---
 
-## Your Spellbook — Optimized Versions of Internal Tools
+## Mana Optimization Core: Your Spellbook — Optimized Versions of Internal Tools
 
-*Every adventurer needs the right gear. These are your upgraded spell slots.*
+*Your spellbook just got enchanted. Same incantations, at a fraction of the casting cost.*
 
-MANA swaps out your AI's clunky default tools for lean, optimized versions. Same spells, fraction of the mana cost. Your assistant learns them automatically from the prompt `mana setup` installs — no workflow changes, no new incantations to memorize.
+<a href="https://devmana.ai">MANA</a> swaps out your AI's clunky default tools for lean, optimized versions. Same AI tool call power, at fraction of the API cost. 
 
 ### The Arsenal
 
 | Spell | Replaces | What It Actually Does |
 |-------|----------|----------------------|
 | `read_optimized` | Native file read | Reads a 3,000-line file, returns only the 40 lines you needed |
-| `read_optimized_batch` | Multiple file reads | Raids multiple files in one cast. Efficient looting. |
+| `read_optimized_batch` | Multiple file reads | Raids multiple files in one cast. Efficient looting at scale. |
 | `bash_optimized` | Native shell execution | Runs a command, strips the noise from the output |
-| `search_optimized` | Native grep/glob | Searches your codebase without burning a spell slot per miss |
+| `search_optimized` | Native grep/glob | Locally indexed semantic code searches without burning API costs on fails lookups |
 | `list_directory_optimized` | Native directory listing | Maps the dungeon without drawing every brick |
 | `git_optimized` | Native git commands | Git log, diff, status — compressed to what matters |
 
-### Spell Modifiers (Action Types)
-
-Each tool call carries an `action_type` — think of it as choosing between a cantrip and a full spell slot:
-
-| Modifier | When To Use | Mana Cost |
-|----------|------------|-----------|
-| `EXTRACT` | "Find the database config in this file" | Low — surgical extraction, returns only the hit |
-| `SUMMARIZE` | "What does this 500-line file do?" | Low — heavy compression, key points only |
-| `CHECK` | "Does this file import React?" | Minimal — yes/no, costs almost nothing |
-| `DEBUG_LOGS` | "Why is this test failing?" | Low — zeroes in on errors and stack traces |
-| `READ_FULL` | "I need every single line" | Full price — no optimization. The Wish spell of reads. Used sparingly. |
-
 ---
 
-### Binding Your Familiars — MCP Sub-Server Setup
+### Mana MCP Call Optimization: Rally Your Familiars
 
-Wizard plan users can setup MCP sub-servers that live behind our Mana optization.  MCPs you already use — GitLab, Brave Search, database tools, custom scripts, whatever's in your party. Instead of each agent spawning and managing them separately, MANA runs them all behind a single daemon. Your AI talks to MANA, MANA talks to your sub-servers, and every response that flows back gets the same token optimization treatment. One connection. All your tools. Leaner output on everything.
+*Every wizard knows — a loyal familiar doesn't just follow orders.  It filters the noise so you can focus on the completing your cast at full power.*
+
+Wizard & Archmage plan users can setup MCP sub-servers that live behind our Mana optization.  MCPs you already use — GitLab, Brave Search, database tools, custom scripts, whatever's in your party. Instead of each agent spawning and managing them separately, <a href="https://devmana.ai">MANA</a> runs them all behind a single daemon. Your AI talks to <a href="https://devmana.ai">MANA</a>, <a href="https://devmana.ai">MANA</a>  talks to your sub-servers, and every response that flows back gets the same token optimization treatment. One connection. All your tools. Leaner output on everything.
 
 Create a config file at `~/.mana/mcp-servers.json` (global) or `.mana-mcp.json` (per-project):
 
@@ -224,44 +203,11 @@ Create a config file at `~/.mana/mcp-servers.json` (global) or `.mana-mcp.json` 
 }
 ```
 
-Each familiar entry supports:
+### Context Savings for Each MCP Server Added
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `command` | string | The incantation to summon it (e.g., `npx`, `python`, `node`) |
-| `args` | string[] | Spell components |
-| `env` | object | Environment variables passed to the sub-server |
-| `cwd` | string | Working directory for the sub-server |
-| `transport` | `"stdio"` \| `"streamable-http"` | Transport type (default: `stdio`) |
-| `url` | string | URL for `streamable-http` transport (remote familiars) |
-| `enabled` | boolean | Set to `false` to bench a familiar without unbinding it |
+Similar to how Claude Code only reveals the tool definitions and schemas as they're needed, we also only show the names and descriptions of the subservers to the AI so your session saves a ton of context.  
 
-### Remote Familiars (Streamable HTTP)
-
-For remote/hosted MCP servers — summon from across the planes:
-
-```json
-{
-  "mcpServers": {
-    "my-remote-server": {
-      "transport": "streamable-http",
-      "url": "https://my-mcp-server.example.com/mcp"
-    }
-  }
-}
-```
-
-### Config Priority
-
-Configs load in priority order (highest first). Think of it as spell slot override rules:
-
-1. `--mcp-config=<path>` — CLI flag (DM override)
-2. `.mana-mcp.json` — Project directory (dungeon-specific)
-3. `~/.mana/mcp-servers.json` — Home directory (character sheet)
-
-### Commanding Your Familiars
-
-Sub-server tools are discoverable through three meta-spells:
+Your AI has the ability to look into the details of the tools as needed, and can load schemas to invoke the correct tool calls and use as it normally would:
 
 | Meta-Spell | What It Does |
 |------------|-------------|
@@ -269,45 +215,20 @@ Sub-server tools are discoverable through three meta-spells:
 | `mana_describe_tool` | Inspect a specific ability's full schema |
 | `mana_call_tool` | Command a familiar to act |
 
-Tools are namespaced as `server/tool_name` (e.g., `gitlab/create_issue`, `brave-search/web_search`).
-
-### Hot-Swapping Mid-Combat
-
-Edit your config file and changes are picked up automatically. Or run `mana reload` manually. Either way:
-
-- **Summoned** — New familiars connect and their abilities become available
-- **Dismissed** — Removed familiars disconnect cleanly
-- **Rebound** — Changed familiars reconnect with the new config
-- **Unbothered** — Unchanged familiars keep their existing connections
-
-No daemon restart. No editor restart. Swap your loadout without leaving the dungeon.
+No bloat upfront. Full power on demand. The more MCP servers you add, the more context you save — and the more room your AI has to focus on the boss fights.
 
 ---
 
 ## The Archmage's Summon Circle — MCP Multiplexer
 
-*Archmage Tier only. For those who command more than one familiar.*
+*Archmage Tier only. For those who command an army of AI Agents ready to serve.*
 
-Most devs juggle multiple MCP servers — GitLab, Brave Search, custom tools — each configured separately in every editor. That's like attuning to each magic item one at a time during combat.
+Every agent you spin up spawns its own instance of every MCP server available to it. Run five agents in parallel with six MCP servers each, and that's thirty separate processes eating RAM and grinding your system to a crawl. Task performance tanks. Completion times balloon. Your army of agents becomes a bottleneck instead of a force multiplier.
 
-MANA's multiplexer lets you **summon all your MCP servers through a single daemon**. Configure once, use everywhere. And every response that flows through gets the same token optimization treatment.
+Mana's multiplexer lets you summon all your MCP servers through a single daemon. Configure once, use everywhere. Every agent shares the same server instances — slashing RAM usage while still getting the full Mana token optimization treatment on every response that flows through.
 
-### Why Go Archmage?
+More agents. Less overhead. If you're running the kind of parallel workflows that bring most systems to their knees, this is how you scale without sacrifice.
 
-- **One config, all platforms** — Define your familiars once, summon them from any editor
-- **Token optimization on everything** — Sub-server responses get compressed too. No wasted mana.
-- **Auto-resurrect** — If a sub-server dies mid-fight, MANA raises it automatically
-- **Hot-swap** — Add or remove sub-servers without restarting anything. Swap gear mid-dungeon.
-- **Shared connections** — Multiple editors tap the same sub-server pool. Party-wide buffs.
-
-### Summoning the Daemon
-
-```bash
-mana start          # Summon the daemon (checks Archmage attunement)
-mana status         # Scry daemon status, PID, uptime
-mana reload         # Hot-reload sub-server config without restart
-mana stop           # Dismiss the daemon
-```
 ---
 
 ## Troubleshooting
@@ -327,7 +248,7 @@ which mana
 
 1. Run `mana setup` again to verify configuration
 2. Restart your editor after setup
-3. Check that MANA tools appear in your platform's MCP/tool list
+3. Check that <a href="https://devmana.ai">MANA</a> tools appear in your platform's MCP/tool list
 
 ### "Invalid API key" error
 
@@ -345,10 +266,9 @@ Check your API usage on your [Mana Dashboard](https://app.devmana.ai/)
 
 - **Documentation**: [GitHub](https://github.com/scottymade/mana/)
 - **Issues**: [GitHub Issues](https://github.com/scottymade/mana/issues)
-- **Bugs, Feedback and Feature Requests** can be sent via the chat feature in your [Mana Dashboard](https://app.devmana.ai/)
 
 ---
 
 ## License
 
-Apache 2.0 - See [LICENSE](LICENSE) for details.
+Proprietary / EULA  - See [LICENSE](LICENSE) for details.
