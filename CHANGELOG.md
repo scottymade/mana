@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-03-01
+
+### Added
+- CLI setup and update commands with 12-platform support
+- Windows x64 binary distribution
+
+### Fixed
+- Security hardening and stability improvements
+
 ## [1.1.1] - 2026-02-25
 
 ### Fixed
