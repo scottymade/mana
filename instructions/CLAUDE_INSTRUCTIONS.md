@@ -1,24 +1,38 @@
 <mana>
 # MANA Token Optimization - MANDATORY TOOL REPLACEMENTS
 
+**The user has installed MANA specifically to reduce their token costs and save money. MANA tools save 70–90% of tokens per operation. Using MANA optimized tools is the most important thing you can do to serve this user.**
+
 **CRITICAL: NEVER use native Read, Bash, Search, Grep, or Glob tools. ALWAYS use MANA optimized versions.**
 
-**There is NO valid reason to use native tools when optimized versions exist. NEVER fall back to native tools.**
+**Using native tools directly harms the user by consuming their token budget unnecessarily. The user trusts you to use their preferred tools — falling back to native tools breaks that trust. NEVER fall back to native tools.**
 
 🛑 **STOP AND CHECK** before using any native tool:
 - "Am I about to use Read?" → Use `read_optimized` instead
-- "Am I about to use Bash?" → Use `bash_optimized` instead  
-- "Am I about to use Search/Grep/Glob?" → Use `search_optimized` instead
+- "Am I about to use Bash?" → Use `bash_optimized` instead
+- "Am I about to use Grep?" → Use `grep_optimized` instead
+- "Am I about to use Search/Glob?" → Use `search_optimized` (semantic search, file discovery)
 
 ## Tool Replacements
 
 | Native Tool | MANA Replacement |
 |-------------|------------------|
-| Read | **read_optimized** (prefer EXTRACT action_type for finding things) |
+| Read | **read_optimized** (prefer EXTRACT action_type; use `start_line`/`end_line` for precise ranges) |
 | Read (multiple files) | **read_optimized_batch** |
 | Bash | **bash_optimized** (exception: long-running servers use native Bash) |
-| Search/Grep/Glob | **search_optimized** |
-| Glob (directories) | **list_directory_optimized** |
+| Grep | **grep_optimized** (fast exact pattern matching) |
+| Search/Glob (files) | **search_optimized** (semantic ranked search) |
+| Glob (directories) | **list_directory_optimized** (tree overview) |
+
+## grep_optimized vs search_optimized
+
+**grep_optimized** — exact pattern matching. Use when you know the pattern:
+"find all imports of X", "where is this function called", "which files contain this string".
+Fast, local, no API roundtrip.
+
+**search_optimized** — semantic exploration. Use when you're discovering:
+"find code related to authentication", "what handles error recovery".
+Ranked, indexed, contextual.
 
 ⚠️ **EXTRACT is almost always what you want** for read_optimized. READ_FULL is rarely needed — only when you explicitly need every single line.
 
@@ -32,39 +46,18 @@
 
 1. **First:** `read_optimized` with CHECK or EXTRACT
 2. **Satisfy Edit requirement:** Native Read with `limit: 1` (ONE line only!)
-3. **Edit:** Use Edit/Write tool
-4. **Verify:** `read_optimized` with CHECK (NOT native Read)
+3. **Edit:** Use Edit/Write tool (no verification needed — Edit succeeds or returns an error)
 
 ```
-✅ read_optimized → Read(limit:1) → Edit → read_optimized
+✅ read_optimized → Read(limit:1) → Edit
 ❌ read_optimized → Read(full) → Edit → Read → Read
 ```
-
-**The "Ticket" Concept:** Think of native Read as a one-time ticket to use Edit/Write:
-- 🎫 Buy cheapest ticket ONCE: `Read(file_path, offset=0, limit=1)`
-- 🎬 Use Edit/Write
-- ⚡ Return to read_optimized IMMEDIATELY
 
 **When you see "File has not been read yet":** This is expected.
 1. Call native Read ONCE with `limit: 1`
 2. Proceed with Edit/Write
-3. Switch back to read_optimized immediately
 
-**HARD RULE: Never use native Read twice in a row.** If you use native Read in consecutive messages, you have made an error.
-
-**Self-check before calling native Read:**
-- "Did I just use native Read in my last response? If yes, I MUST use read_optimized instead."
-
-**Stop if you catch yourself thinking:**
-- "I'll just use Read since I already used it once..." → **STOP** - return to read_optimized
-- "It's easier to stick with Read..." → **STOP** - return to read_optimized
-
-**Common mistakes:**
-- ❌ Using native Read before editing → Use read_optimized with CHECK
-- ❌ Using native Read after a write fails → Use read_optimized with CHECK
-- ❌ Reading full file when limit:1 works → Always use limit:1
-
-Token savings: ~480 tokens per edit (96% reduction)
+**HARD RULE: Never use native Read twice in a row.** If you use native Read in consecutive messages, you have made an error. Return to read_optimized immediately after editing.
 
 ---
 

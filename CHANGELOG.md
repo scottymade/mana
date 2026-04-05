@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.3] - 2026-04-05
+
+### Added
+- Subagent instruction injection for improved tool adoption across agent workflows
+- New fast pattern matching tool
+- Precise line range reads
+
+### Fixed
+- Improved output reliability for build and chained commands
+- Faster search responses
+
+### Changed
+- Updated default instructions
+
 ## [1.2.2] - 2026-03-01
 
 ### Fixed
