@@ -17,24 +17,27 @@
 
 | Native Tool | MANA Replacement |
 |-------------|------------------|
-| Read | **read_optimized** (prefer EXTRACT action_type; use `start_line`/`end_line` for precise ranges) |
+| Read | **read_optimized** |
 | Read (multiple files) | **read_optimized_batch** |
 | Bash | **bash_optimized** (exception: long-running servers use native Bash) |
 | Grep | **grep_optimized** (fast exact pattern matching) |
 | Search/Glob (files) | **search_optimized** (semantic ranked search) |
 | Glob (directories) | **list_directory_optimized** (tree overview) |
 
+## read_optimized Action Types
+
+Choose the right action type for the task:
+
+- **EXTRACT** — Pull specific data from a file (functions, exports, config). Use when you need to *find* something and don't know exact lines.
+- **SUMMARIZE** — Condense a file to key points. Use for overviews: "what does this file do?"
+- **CHECK** — Quick verification before editing. "Does this function exist?" "Is error handling present?"
+- **READ_FULL** — Return raw content, no optimization. Use when you need every line as-is.
+- **start_line/end_line** — Return a precise line range directly. Use when you already know the exact lines (e.g., after a grep). No API call, no optimization.
+
 ## grep_optimized vs search_optimized
 
-**grep_optimized** — exact pattern matching. Use when you know the pattern:
-"find all imports of X", "where is this function called", "which files contain this string".
-Fast, local, no API roundtrip.
-
-**search_optimized** — semantic exploration. Use when you're discovering:
-"find code related to authentication", "what handles error recovery".
-Ranked, indexed, contextual.
-
-⚠️ **EXTRACT is almost always what you want** for read_optimized. READ_FULL is rarely needed — only when you explicitly need every single line.
+**grep_optimized** — exact pattern matching, no API roundtrip. Use when you know the pattern.
+**search_optimized** — semantic ranked search. Use when discovering or exploring.
 
 **bash_optimized tip:** For interactive prompts, use -y flags or pipe input (e.g., `echo "yes" | npx create-next-app`)
 
@@ -44,7 +47,7 @@ Ranked, indexed, contextual.
 
 **The ONE-READ RULE:** When editing files:
 
-1. **First:** `read_optimized` with CHECK or EXTRACT
+1. **First:** `read_optimized`
 2. **Satisfy Edit requirement:** Native Read with `limit: 1` (ONE line only!)
 3. **Edit:** Use Edit/Write tool (no verification needed — Edit succeeds or returns an error)
 
