@@ -15,29 +15,14 @@
 
 ## Tool Replacements
 
-| Native Tool | MANA Replacement |
-|-------------|------------------|
-| Read | **read_optimized** |
-| Read (multiple files) | **read_optimized_batch** |
-| Bash | **bash_optimized** (exception: long-running servers use native Bash) |
-| Grep | **grep_optimized** (fast exact pattern matching) |
-| Search/Glob (files) | **search_optimized** (semantic ranked search) |
-| Glob (directories) | **list_directory_optimized** (tree overview) |
-
-## read_optimized Action Types
-
-Choose the right action type for the task:
-
-- **EXTRACT** — Pull specific data from a file (functions, exports, config). Use when you need to *find* something and don't know exact lines.
-- **SUMMARIZE** — Condense a file to key points. Use for overviews: "what does this file do?"
-- **CHECK** — Quick verification before editing. "Does this function exist?" "Is error handling present?"
-- **READ_FULL** — Return raw content, no optimization. Use when you need every line as-is.
-- **start_line/end_line** — Return a precise line range directly. Use when you already know the exact lines (e.g., after a grep). No API call, no optimization.
-
-## grep_optimized vs search_optimized
-
-**grep_optimized** — exact pattern matching, no API roundtrip. Use when you know the pattern.
-**search_optimized** — semantic ranked search. Use when discovering or exploring.
+| Native Tool | MANA Replacement | Action Types |
+|-------------|------------------|--------------|
+| Read | **read_optimized** | EXTRACT: find specific data. SUMMARIZE: condense to key points. CHECK: quick verify before editing. READ_FULL: return raw, no optimization. FORMAT: restructure content. DEBUG_LOGS: extract errors from logs. |
+| Read (multiple) | **read_optimized_batch** | EXTRACT_BATCH: parallel extraction, results concatenated. EXTRACT_SYNTHESIZE_BATCH: extraction + cross-file synthesis. |
+| Bash | **bash_optimized** (exception: long-running servers) | RUN_BUILD: errors/success only. RUN_TEST: failures/success only. INSTALL: status only. CHECK_STATUS: git status, docker ps. GIT_OPERATIONS: git diff/log. LINT_CHECK: grouped summary. TYPE_CHECK: tsc summary. SECURITY_AUDIT: group by severity. PROCESS_OUTPUT: general. |
+| Grep | **grep_optimized** (fast exact pattern matching) | None — direct results. |
+| Search/Glob (files) | **search_optimized** (semantic ranked search) | FIND_FILES: find files by name/glob. FIND_DEFINITION: find where defined. FIND_USAGE: find where used/called. FIND_PATTERN: find text in files. FIND_ERRORS: find error messages. |
+| Glob (directories) | **list_directory_optimized** (tree overview) | OVERVIEW: high-level project structure. FILTER: find specific file types/patterns. STATS: count files, sizes. |
 
 **bash_optimized tip:** For interactive prompts, use -y flags or pipe input (e.g., `echo "yes" | npx create-next-app`)
 
@@ -92,34 +77,12 @@ Native MANA tools (read_optimized, bash_optimized, etc.) are available directly 
 
 ---
 
-## submit_feedback — IMPORTANT
+## submit_feedback
 
-Your feedback directly improves MANA tools for all users.
-
-**Bugs** (type: "bug") — File when:
-- A tool fails **repeatedly** in the same session
-- Output is malformed or clearly incorrect
-- Tool behaves differently than documented
-
-Do NOT file bugs for one-time transient errors (retry first).
-
-**Features** (type: "feature") — File when:
-- After completing a task, you realize a MANA tool could have helped but doesn't exist
-- An existing tool is missing functionality that would have saved tokens
-- You find yourself repeatedly working around a limitation
-- A new action_type would help a common workflow
-
-**Params:** `type`, `subtype`, `tool_name`, `description`, `context`
-
-**Subtypes:**
-- Bugs: `tool_error`, `api_error`, `other`
-- Features: `new_tool`, `tool_change`, `new_tool_action`, `tool_action_change`
-
-**Reflection prompt:** After completing a significant task, briefly consider:
-- "Did any MANA tools fail or behave unexpectedly?" → File bug
-- "Was there a point where I wished a MANA tool could do something it can't?" → File feature
+**Bugs** (type: "bug") — Tool fails repeatedly, output is malformed, or behavior doesn't match docs. Retry transient errors first.
+**Features** (type: "feature") — A MANA tool is missing functionality or a new tool/action would save tokens.
 
 **Examples:**
-- Bug: `type: "bug", subtype: "tool_error", tool_name: "bash_optimized", description: "npm install times out after 30s with INSTALL action"`
+- Bug: `type: "bug", subtype: "tool_error", tool_name: "bash_optimized", description: "npm install times out after 30s"`
 - Feature: `type: "feature", subtype: "new_tool_action", tool_name: "read_optimized", description: "A COMPARE action to diff two files"`
 </mana>
