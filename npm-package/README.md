@@ -12,13 +12,10 @@
     <img src="https://img.shields.io/npm/v/@scottymade/mana" alt="npm">
   </a>
   <a href="https://github.com/scottymade/mana/releases">
-    <img src="https://img.shields.io/badge/platform-macOS%20%7C%20Linux-lightgrey.svg" alt="Platforms">
+    <img src="https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey.svg" alt="Platforms">
   </a>
   <a href="https://devmana.ai">
     <img src="https://img.shields.io/badge/AI%20Coding%20Agent-MCP%20Server-purple.svg" alt="Mana AI Coding Agent MCP Server">
-  </a>
-  <a href="https://github.com/scottymade/mana/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/scottymade/mana" alt="License">
   </a>
 </p>
 
@@ -168,7 +165,8 @@ npm list -g @scottymade/mana
 | `read_optimized` | Native file read | Reads a 3,000-line file, returns only the 40 lines you needed |
 | `read_optimized_batch` | Multiple file reads | Raids multiple files in one cast. Efficient looting at scale. |
 | `bash_optimized` | Native shell execution | Runs a command, strips the noise from the output |
-| `search_optimized` | Native grep/glob | Locally indexed semantic code searches without burning API costs on fails lookups |
+| `grep_optimized` | Native grep | Fast exact pattern matching — no API roundtrip, just results |
+| `search_optimized` | Native search/glob | Locally indexed semantic code searches without burning API costs on failed lookups |
 | `list_directory_optimized` | Native directory listing | Maps the dungeon without drawing every brick |
 | `git_optimized` | Native git commands | Git log, diff, status — compressed to what matters |
 
