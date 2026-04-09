@@ -10,8 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.3.1] - 2026-04-09
 
 ### Fixed
-- Standardized batch tool API to use uppercase action types for consistency
-- Updated default instructions
+- Various fixes
 
 ## [1.3.0] - 2026-04-09
 
