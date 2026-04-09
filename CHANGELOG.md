@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.0] - 2026-04-09
+
+### Added
+- New batch tool for parallel execution of multiple operations in a single round-trip
+- New fast pattern matching tool
+- Session statistics reporting
+
+### Fixed
+- Improved setup command argument handling
+- Various optimization fixes
+
+### Changed
+- Updated default instructions
+
 ## [1.2.5] - 2026-04-06
 
 ### Changed
