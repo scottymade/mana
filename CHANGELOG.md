@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.5.0] - 2026-04-15
+
+### Added
+- Session-wide token tracking with full cost breakdown
+- Enhanced session stats showing total session cost, MANA savings percentage, and token usage
+
+### Changed
+- Updated default instructions
+
 ## [1.4.4] - 2026-04-15
 
 ### Changed
