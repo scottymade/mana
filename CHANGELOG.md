@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.6.2] - 2026-06-08
+
+### Fixed
+- Improved update reliability for existing installations
+- Preserved existing local configuration data during setup and update
+
 ## [1.6.1] - 2026-06-08
 
 ### Fixed
