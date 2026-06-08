@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.6.1] - 2026-06-08
+
+### Fixed
+- Fixed a startup issue in the MCP tool gateway
+- Cleaned up npm package metadata
+
 ## [1.6.0] - 2026-06-08
 
 ### Added

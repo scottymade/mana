@@ -1,6 +1,6 @@
 {
   "name": "@scottymade/mana",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "MANA - LLM Token Optimization",
   "keywords": [
     "claude",
@@ -14,13 +14,13 @@
   "homepage": "https://devmana.ai",
   "repository": {
     "type": "git",
-    "url": "https://github.com/scottymade/mana"
+    "url": "git+https://github.com/scottymade/mana.git"
   },
   "bugs": {
     "url": "https://github.com/scottymade/mana/issues"
   },
   "bin": {
-    "mana": "./bin/mana"
+    "mana": "bin/mana"
   },
   "scripts": {
     "postinstall": "node scripts/postinstall.js"
