@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.6.0] - 2026-06-08
+
+### Added
+- Enhanced diagnostics for daemon health and session status
+
+### Fixed
+- Improved daemon recovery and session reliability
+- Various optimization fixes
+
+### Changed
+- Updated default instructions
+
 ## [1.5.0] - 2026-04-15
 
 ### Added
