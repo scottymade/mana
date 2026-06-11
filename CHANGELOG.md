@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.7.0] - 2026-06-11
+
+### Added
+- Output compression mode: setup now offers to make assistant responses more concise (enabled by default, estimated up to ~40% fewer output tokens)
+- Redesigned session stats with a full cost breakdown (output, cache reads, cache writes, input) and per-stream savings attribution
+
+### Fixed
+- More accurate session cost calculations, including support for the latest models
+- Sessions that switch models mid-way are now priced consistently
+
+### Changed
+- Various optimization improvements
+
 ## [1.6.3] - 2026-06-08
 
 ### Fixed
