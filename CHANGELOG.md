@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.8.0] - 2026-06-14
+
+### Fixed
+- More reliable batched operations — long-running batches no longer time out and discard already-completed results
+- Cleaner command output (removed redundant exit-status lines when a command already produced output)
+
+### Changed
+- More accurate session savings reporting, with better handling of long sessions and context resets
+- Improved reliability across long-running and reconnecting sessions
+
 ## [1.7.0] - 2026-06-11
 
 ### Added
