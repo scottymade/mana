@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.9.0] - 2026-07-29
+
+### Added
+- A guided planning workflow for creating implementation plans with progress updates and reliable result retrieval
+
+### Changed
+- Improved reliability for long-running sessions, reconnection, and workspace-aware workflows
+- Updated model support, cost calculations, and platform guidance
+
+### Fixed
+- Various stability, compatibility, and usage-accounting issues
+
 ## [1.8.0] - 2026-06-14
 
 ### Fixed
