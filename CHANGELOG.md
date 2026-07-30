@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.9.1] - 2026-07-30
+
+### Fixed
+- Improved reliability for long-running workflows and connection recovery
+
 ## [1.9.0] - 2026-07-29
 
 ### Added
