@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.9.6] - 2026-08-03
+
+### Fixed
+- Prevented daemon discovery state from becoming detached from a still-running local daemon
+- Made daemon replacement and shutdown safe across concurrent editor sessions
+- Corrected misleading API-key errors when the local daemon authentication token changes
+- Prevented long-running local searches and child servers from blocking daemon health or shutdown
+
+### Changed
+- `mana status` now reports missing-state port conflicts without signaling unverified processes
+
 ## [1.9.5] - 2026-08-02
 
 ### Changed
