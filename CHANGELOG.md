@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.10.0] - 2026-08-06
+
+### Added
+- Added automatic runtime updates when starting a new MANA daemon
+
+### Changed
+- Added stronger release integrity and dependency supply-chain protections
+- Improved compatibility between installed clients and updated daemon runtimes
+
+### Fixed
+- Preserved daemon availability when automatic update checks are temporarily unavailable
+
 ## [1.9.8] - 2026-08-06
 
 ### Added
