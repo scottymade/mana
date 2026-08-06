@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.9.8] - 2026-08-06
+
+### Added
+- Added a single-command daemon restart workflow
+
+### Fixed
+- Improved daemon restart reliability for active sessions
+- Ensured updated MCP server configuration is recognized after a restart
+
 ## [1.9.7] - 2026-08-04
 
 ### Fixed
