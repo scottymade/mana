@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.10.1] - 2026-08-07
+
+### Changed
+- Improved command execution reliability and reduced unnecessary processing
+
+### Fixed
+- Prevented routine command operations from triggering redundant optimization work
+
 ## [1.10.0] - 2026-08-06
 
 ### Added
