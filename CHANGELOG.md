@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.10.2] - 2026-08-08
+
+### Changed
+- Improved session usage reporting and runtime reliability
+
+### Fixed
+- Corrected cache usage reporting across supported clients
+- Strengthened output safety and long-running task recovery
+
 ## [1.10.1] - 2026-08-07
 
 ### Changed
