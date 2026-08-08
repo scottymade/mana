@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.10.3] - 2026-08-08
+
+### Fixed
+- Improved runtime stability for command execution
+
 ## [1.10.2] - 2026-08-08
 
 ### Changed
