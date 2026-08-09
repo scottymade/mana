@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.11.0] - 2026-08-09
+
+### Changed
+- Improved planning quality and consistency across complex workflows
+
+### Fixed
+- Improved recovery for long-running planning requests
+- Improved session continuity and local runtime restart reliability
+
 ## [1.10.3] - 2026-08-08
 
 ### Fixed
