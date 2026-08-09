@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.11.1] - 2026-08-09
+
+### Fixed
+- Improved automatic update reliability when replacing an active local runtime
+
 ## [1.11.0] - 2026-08-09
 
 ### Changed
