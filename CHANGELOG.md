@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.12.1] - 2026-08-13
+
+### Fixed
+- Hardened scoped configuration checks to prevent unrelated values from being returned
+- Improved compressed-read reliability with deterministic output bounds and deadlines
+- Expanded argument-preservation coverage for common development commands
+
 ## [1.12.0] - 2026-08-13
 
 ### Changed
