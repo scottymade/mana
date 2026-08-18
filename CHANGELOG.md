@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.12.2] - 2026-08-18
+
+### Fixed
+- Improved command result accuracy for successful builds
+- Strengthened remote synchronization verification
+
 ## [1.12.1] - 2026-08-13
 
 ### Fixed
