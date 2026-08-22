@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.12.6] - 2026-08-23
+
+### Changed
+- Various fixes and improvements
+
 ## [1.12.5] - 2026-08-20
 ### Fixed
 - Corrected subscription tier reporting in daemon status
