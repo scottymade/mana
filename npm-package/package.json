@@ -1,6 +1,6 @@
 {
   "name": "@scottymade/mana",
-  "version": "1.12.7",
+  "version": "1.12.8",
   "description": "MANA - LLM Token Optimization",
   "keywords": [
     "claude",
