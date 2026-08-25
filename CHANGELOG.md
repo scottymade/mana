@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.12.7] - 2026-08-25
+
+### Fixed
+- Improved planning reliability
+
 ## [1.12.6] - 2026-08-23
 
 ### Changed
