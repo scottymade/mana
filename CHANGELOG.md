@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.12.11] - 2026-08-31
+
+### Changed
+- Improved optimization efficiency, reliability, and compatibility
+
+### Fixed
+- Strengthened privacy and usage-reporting safeguards
+
 ## [1.12.10] - 2026-08-26
 
 ### Fixed
