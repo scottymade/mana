@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.12.18] - 2026-09-10
+
+### Fixed
+- Improved compatibility and reliability for supported workflows.
+- Strengthened output safety checks.
+
 ## [1.12.17] - 2026-09-10
 
 ### Fixed
