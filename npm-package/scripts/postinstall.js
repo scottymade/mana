@@ -152,7 +152,7 @@ async function main() {
     console.warn(`Warning: Could not create binary link: ${error.message}`);
   }
 
-  console.log('MANA: Installation complete!\n');
+  console.log('  Installation complete!');
 }
 
 if (require.main === module) {

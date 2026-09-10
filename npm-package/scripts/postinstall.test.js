@@ -69,7 +69,7 @@ test('successful installation prints only its completion message', async () => {
     assert.strictEqual(downloads, 1);
     assert.strictEqual(fs.readFileSync(path.join(root, 'bin', 'mana-binary'), 'utf8'), payload);
     assert.deepStrictEqual(output, [
-      'MANA: Installation complete!\n',
+      '  Installation complete!',
     ]);
   } finally {
     fs.rmSync(root, { recursive: true, force: true });
