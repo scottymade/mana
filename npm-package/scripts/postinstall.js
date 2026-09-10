@@ -113,8 +113,6 @@ async function main() {
   const manifest = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'checksums.json'), 'utf8'));
   const expected = expectedChecksum(manifest, version, binaryName);
 
-  console.log(`\nMANA: Installing ${binaryName}...`);
-
   // Ensure bin directory exists
   if (!fs.existsSync(binDir)) {
     fs.mkdirSync(binDir, { recursive: true });
@@ -155,10 +153,6 @@ async function main() {
   }
 
   console.log('MANA: Installation complete!\n');
-  console.log('Next steps:');
-  console.log('  1. Create .mcp.json in your project (see README)');
-  console.log('  2. Add MANA instructions to .claude/CLAUDE.md');
-  console.log('  3. Restart Claude Code\n');
 }
 
 if (require.main === module) {
