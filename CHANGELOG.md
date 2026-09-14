@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.12.20] - 2026-09-14
+
+### Changed
+- Updated default instructions.
+
+### Fixed
+- Improved planning reliability and recovery for long-running workflows.
+
 ## [1.12.19] - 2026-09-11
 
 ### Fixed
