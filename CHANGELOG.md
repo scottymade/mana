@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.12.21] - 2026-09-26
+
+### Fixed
+- MANA being terminated at launch (`zsh: killed`) on macOS 27. Installs now repair the binary's code signature automatically on macOS.
+
 ## [1.12.20] - 2026-09-14
 
 ### Changed

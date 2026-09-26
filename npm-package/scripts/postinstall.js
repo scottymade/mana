@@ -80,6 +80,29 @@ function downloadFile(url, dest) {
   }
 }
 
+const CODESIGN_PATH = '/usr/bin/codesign';
+
+/**
+ * macOS kills binaries whose code signature is missing or invalid (enforced
+ * strictly from macOS 27; older releases tolerated it). Bun-compiled binaries
+ * can ship with an invalid ad-hoc signature, so verify on install and re-apply
+ * an ad-hoc signature when needed. Runs after the SHA-256 check, so only the
+ * verified binary is ever signed. No-op on other platforms.
+ */
+function ensureMacSignature(filePath) {
+  if (process.platform !== 'darwin') return;
+  try {
+    execFileSync(CODESIGN_PATH, ['--verify', '--strict', filePath], { stdio: 'pipe' });
+    return;
+  } catch { /* invalid or missing signature: re-sign below */ }
+  try {
+    execFileSync(CODESIGN_PATH, ['--force', '--sign', '-', filePath], { stdio: 'pipe' });
+  } catch (error) {
+    console.warn(`Warning: Could not code-sign ${filePath}: ${error.message}`);
+    console.warn(`macOS may refuse to run it. Fix manually with: codesign --force --sign - "${filePath}"`);
+  }
+}
+
 function sha256File(filePath) {
   return crypto.createHash('sha256').update(fs.readFileSync(filePath)).digest('hex');
 }
@@ -137,6 +160,7 @@ async function main() {
 
   // Make it executable
   fs.chmodSync(binaryPath, 0o755);
+  ensureMacSignature(binaryPath);
 
   // Create a symlink or copy as 'mana-binary' so the wrapper can find it
   const symlinkPath = path.join(binDir, 'mana-binary');
@@ -162,4 +186,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { expectedChecksum, getBinaryName, main, sha256File };
+module.exports = { ensureMacSignature, expectedChecksum, getBinaryName, main, sha256File };

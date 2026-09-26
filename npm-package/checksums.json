@@ -1,9 +1,9 @@
 {
-  "version": "1.12.20",
+  "version": "1.12.21",
   "sha256": {
-    "mana-mcp-darwin-arm64": "37e5c3c5cbbbde2124b42f3aea038c7eb034f7d41fac0121499ce5305bd0d75b",
-    "mana-mcp-darwin-x64": "aec55e006d0526fab16c97b86c4e5fc9f070ef9d621d3d3d1e466dcbfa923503",
-    "mana-mcp-linux-x64": "6d8f0d3fb4851933531a615c893f255e3e1c1d809e9ae24e0de07e426f0d1180",
-    "mana-mcp-windows-x64.exe": "27ad9f4e93bbf4204a51670c41bc9bceeed8c1a42bb487cc63f0816629603866"
+    "mana-mcp-darwin-arm64": "db397969dcdb7fc4d216a68f8de180129822314696da06d3f84e495cc73c7809",
+    "mana-mcp-darwin-x64": "e3105d824a10d16e28063246a589cd0c43e858cf57061e5eea968a6c19b90f24",
+    "mana-mcp-linux-x64": "9d1922dc4f4ab559ca8c493f3b331ff9b1a8003061cdab9d36633d9dd0233d8e",
+    "mana-mcp-windows-x64.exe": "7fc8d89cb678a2ccf3b0ff936ffd8ac641455001bc23fafd573a40d2d06a5b00"
   }
 }

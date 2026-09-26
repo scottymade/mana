@@ -27,7 +27,9 @@ try {
   fs.rmSync(tempDir, { recursive: true, force: true });
 }
 
-test('successful installation prints only its completion message', async () => {
+// Runs the real installer against an owned fixture; never invokes curl or
+// codesign, downloads an executable, or touches the installed Mana/configuration.
+async function runFixtureInstall({ signatureValid }) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'mana-postinstall-output-'));
   try {
     const payload = 'harmless binary fixture';
@@ -39,10 +41,19 @@ test('successful installation prints only its completion message', async () => {
       sha256: { [binaryName]: crypto.createHash('sha256').update(payload).digest('hex') },
     }));
     const output = [];
+    const codesignCalls = [];
     let downloads = 0;
+    const binaryPath = path.join(root, 'bin', binaryName);
     const fixtureRequire = (name) => {
       if (name === '../package.json') return { version };
-      if (name === 'child_process') return { execFileSync: (_command, args) => {
+      if (name === 'child_process') return { execFileSync: (command, args) => {
+        if (command === '/usr/bin/codesign') {
+          codesignCalls.push([...args]); // copy out of the vm realm for deepStrictEqual
+          // Signing must only ever touch the checksum-verified, promoted binary.
+          assert.strictEqual(args[args.length - 1], binaryPath);
+          if (args[0] === '--verify' && !signatureValid) throw new Error('invalid signature');
+          return;
+        }
         downloads++;
         assert.ok(args.includes(`https://github.com/scottymade/mana/releases/download/v${version}/${binaryName}`));
         const destination = args[args.indexOf('-o') + 1];
@@ -52,8 +63,6 @@ test('successful installation prints only its completion message', async () => {
       assert.ok(['fs', 'path', 'crypto'].includes(name), `unexpected import: ${name}`);
       return require(name);
     };
-    // Run the actual installer against an owned fixture; never invoke curl,
-    // download an executable, or touch the installed Mana/configuration.
     const context = {
       require: fixtureRequire,
       module: { exports: {} },
@@ -66,12 +75,32 @@ test('successful installation prints only its completion message', async () => {
     };
     vm.runInNewContext(fs.readFileSync(path.join(__dirname, 'postinstall.js'), 'utf8'), context);
     await context.module.exports.main();
-    assert.strictEqual(downloads, 1);
-    assert.strictEqual(fs.readFileSync(path.join(root, 'bin', 'mana-binary'), 'utf8'), payload);
-    assert.deepStrictEqual(output, [
-      '  Installation complete!',
-    ]);
+    const installed = fs.readFileSync(path.join(root, 'bin', 'mana-binary'), 'utf8');
+    return { binaryPath, codesignCalls, downloads, installed, output, payload };
   } finally {
     fs.rmSync(root, { recursive: true, force: true });
   }
+}
+
+test('successful installation prints only its completion message', async () => {
+  const result = await runFixtureInstall({ signatureValid: true });
+  assert.strictEqual(result.downloads, 1);
+  assert.strictEqual(result.installed, result.payload);
+  assert.deepStrictEqual(result.output, ['  Installation complete!']);
+});
+
+test('macOS binary with a valid signature is left untouched', async () => {
+  const result = await runFixtureInstall({ signatureValid: true });
+  assert.deepStrictEqual(result.codesignCalls, [['--verify', '--strict', result.binaryPath]]);
+});
+
+test('macOS binary with an invalid signature is ad-hoc re-signed before use', async () => {
+  // macOS 27+ SIGKILLs binaries with invalid signatures ("zsh: killed"), so an
+  // unsigned release asset must be repaired at install time, not left broken.
+  const result = await runFixtureInstall({ signatureValid: false });
+  assert.deepStrictEqual(result.codesignCalls, [
+    ['--verify', '--strict', result.binaryPath],
+    ['--force', '--sign', '-', result.binaryPath],
+  ]);
+  assert.deepStrictEqual(result.output, ['  Installation complete!']);
 });
