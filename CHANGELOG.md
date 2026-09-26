@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.12.22] - 2026-09-26
+
+### Changed
+- Tool output that is too large to optimize is now returned instead of an error.
+- Clearer notice when output is returned unoptimized because the plan's token limit has been reached.
+
 ## [1.12.21] - 2026-09-26
 
 ### Fixed
