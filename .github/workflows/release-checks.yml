@@ -1,0 +1,32 @@
+name: Release checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    container: node:24.20.0-bookworm-slim@sha256:ba849c60be29959425b8734d57b8b4b7d56f98edd9504c9af091d5281095a71e
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Test release installer
+        working-directory: npm-package
+        run: npm test
+      - name: Verify release metadata
+        run: |
+          node <<'NODE'
+          const assert = require('node:assert/strict');
+          const fs = require('node:fs');
+          const pkg = JSON.parse(fs.readFileSync('npm-package/package.json', 'utf8'));
+          const checksums = JSON.parse(fs.readFileSync('npm-package/checksums.json', 'utf8'));
+          assert.equal(checksums.version, pkg.version);
+          const expected = ['mana-mcp-darwin-arm64', 'mana-mcp-darwin-x64', 'mana-mcp-linux-x64', 'mana-mcp-windows-x64.exe'];
+          assert.deepEqual(Object.keys(checksums.sha256).sort(), expected.sort());
+          for (const digest of Object.values(checksums.sha256)) assert.match(digest, /^[a-f0-9]{64}$/);
+          assert.ok(fs.readFileSync('CHANGELOG.md', 'utf8').includes(`## [${pkg.version}]`));
+          NODE
