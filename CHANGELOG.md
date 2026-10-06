@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.12.24] - 2026-10-06
+
+### Fixed
+- MANA tools are now usable in OpenAI Codex, including the Codex app, without manual configuration. Run `mana update` and restart Codex.
+- Updated dependencies with security fixes.
+
+### Changed
+- Codex setup no longer passes the MANA API key as a process argument.
+
+Note: 1.12.23 was not published to npm; its changes are included in this release.
+
 ## [1.12.23] - 2026-10-05
 
 ### Fixed
